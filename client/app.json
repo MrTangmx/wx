@@ -1,0 +1,55 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/user/index",
+    "pages/product/index",
+    "pages/creation/index",
+    "pages/answers/index",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "IT测评",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "tabBar": {
+    "color": "#888888",
+    "selectedColor": "#87D8DE",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/image/tabBar/_index.png",
+        "selectedIconPath": "/image/tabBar/index.png"
+      },
+      {
+        "pagePath": "pages/product/index",
+        "text": "产品库",
+        "iconPath": "/image/tabBar/_product.png",
+        "selectedIconPath": "/image/tabBar/product.png"
+      },
+      {
+        "pagePath": "pages/creation/index",
+        "text": "创作",
+        "iconPath": "/image/tabBar/_add.png",
+        "selectedIconPath": "/image/tabBar/add.png"
+      },
+      {
+        "pagePath": "pages/answers/index",
+        "text": "问答",
+        "iconPath": "/image/tabBar/_answers.png",
+        "selectedIconPath": "/image/tabBar/answers.png"
+      },
+      {
+        "pagePath": "pages/user/index",
+        "text": "我的",
+        "iconPath": "/image/tabBar/_user.png",
+        "selectedIconPath": "/image/tabBar/user.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}
