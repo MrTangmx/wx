@@ -1,23 +1,81 @@
-<!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <block wx:if="{{canIUseOpenData}}">
-      <view class="userinfo-avatar" bindtap="bindViewTap">
-        <open-data type="userAvatarUrl"></open-data>
-      </view>
-      <open-data type="userNickName"></open-data>
-    </block>
-    <block wx:elif="{{!hasUserInfo}}">
-      <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
-      <button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-      <view wx:else> 请使用1.4.4及以上版本基础库 </view>
-    </block>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+<!-- 导航模块 -->
+<view class='index_tab'>
+  <scroll-view class="bottom_scroll" scroll-x="true" scroll-left="{{x}}" scroll-with-animation="{{true}}">
+    <view class='nav {{item.brand_id == brand_id?"cur":""}}' wx:for="{{nav_list}}" wx:key="{{item.brand_id}}"
+      data-id="{{item.brand_id}}" bindtap='switchTap' data-index="{{index}}">
+      <view>{{item.brand_name}}</view>
+      <span></span>
+    </view>
+  </scroll-view>
+</view>
+<!-- 轮播图模块 -->
+<view>
+  <swiper indicator-dots="true" indicator-color="#ededed" indicator-active-color="#fff" autoplay='true' circular='true'>
+    <swiper-item wx:for="swiperImg" wx:key="id">
+      <image mode="aspectFill" class="category-imgbox" src="{{item.img}}"></image>
+    </swiper-item>
+  </swiper>
+</view>
+<!-- 副导航 -->
+<view class="navIcon">
+  <view class="navIcon_slf">
+    <view class="navIcon_item"
+      style="background: url(/image/elfImg/icon-navs.png) 0rpx 0 no-repeat;background-size: 416rpx"></view>
+    <text style="font-size:24rpx">查报价</text>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+  <view class="navIcon_slf">
+    <view class="navIcon_item"
+      style="background: url(/image/elfImg/icon-navs.png) -60rpx 0 no-repeat;background-size: 416rpx"></view>
+    <text style="font-size:24rpx">问答</text>
+  </view>
+  <view class="navIcon_slf">
+    <view class="navIcon_item"
+      style="background: url(/image/elfImg/icon-navs.png) -120rpx 0 no-repeat;background-size: 416rpx"></view>
+    <text style="font-size:24rpx">排行</text>
+  </view>
+  <view class="navIcon_slf">
+    <view class="navIcon_item"
+      style="background: url(/image/elfImg/icon-navs.png) -180rpx 0 no-repeat;background-size: 416rpx"></view>
+    <text style="font-size:24rpx">视频</text>
+  </view>
+  <view class="navIcon_slf">
+    <view class="navIcon_item"
+      style="background: url(/image/elfImg/icon-navs.png) -300rpx 0 no-repeat;background-size: 416rpx"></view>
+    <text style="font-size:24rpx">新闻</text>
+  </view>
+  <view class="navIcon_slf">
+    <view class="navIcon_item"
+      style="background: url(/image/elfImg/icon-navs.png) -360rpx 0 no-repeat;background-size: 416rpx"></view>
+    <text style="font-size:24rpx">评测</text>
+  </view>
+  <view class="navIcon_slf">
+    <view class="navIcon_item"
+      style="background: url(/image/elfImg/icon-navs.png) 0rpx -66rpx no-repeat;background-size: 416rpx"></view>
+    <text style="font-size:24rpx">直播</text>
+  </view>
+  <view class="navIcon_slf">
+    <view class="navIcon_item"
+      style="background: url(/image/elfImg/icon-navs.png) -120rpx -66rpx no-repeat;background-size: 416rpx"></view>
+    <text style="font-size:24rpx">图片</text>
+  </view>
+  <view class="navIcon_slf">
+    <view class="navIcon_item"
+      style="background: url(/image/elfImg/icon-navs.png) -360rpx -132rpx no-repeat;background-size: 416rpx"></view>
+    <text style="font-size:24rpx">话题</text>
+  </view>
+  <view class="navIcon_slf">
+    <view class="navIcon_item"
+      style="background: url(/image/elfImg/icon-navs.png) -62rpx -66rpx no-repeat;background-size: 416rpx"></view>
+    <text style="font-size:24rpx">论坛</text>
+  </view>
+  <view class="navIcon_slf">
+    <view class="navIcon_item"
+      style="background: url(/image/elfImg/icon-navs.png) -300rpx -66rpx no-repeat;background-size: 416rpx"></view>
+    <text style="font-size:24rpx">限时</text>
+  </view>
+  <view class="navIcon_slf">
+    <view class="navIcon_item"
+      style="background: url(/image/elfImg/icon-navs.png) -360rpx -66rpx no-repeat;background-size: 416rpx"></view>
+    <text style="font-size:24rpx">应用</text>
   </view>
 </view>

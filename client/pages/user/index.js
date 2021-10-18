@@ -5,9 +5,22 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    image: ''
   },
-
+  getSession() {
+    wx.showToast({
+      title: '信息管理',
+      icon: 'success',
+      duration: 2000
+    })
+  },
+  getUser() {
+    wx.showToast({
+      title: '会员中心',
+      icon: 'success',
+      duration: 2000
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

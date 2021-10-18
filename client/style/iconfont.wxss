@@ -1,0 +1,59 @@
+@font-face {
+  font-family: "iconfont";
+  /* Project id 2875143 */
+  src: url('//at.alicdn.com/t/font_2875143_zo0fj14b6sb.woff2?t=1634542782191') format('woff2'),
+    url('//at.alicdn.com/t/font_2875143_zo0fj14b6sb.woff?t=1634542782191') format('woff'),
+    url('//at.alicdn.com/t/font_2875143_zo0fj14b6sb.ttf?t=1634542782191') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-xiangshang:before {
+  content: "\e64f";
+}
+
+.icon-jiangpai:before {
+  content: "\e606";
+}
+
+.icon-wenda:before {
+  content: "\e65b";
+}
+
+.icon-guanyuwomen:before {
+  content: "\e601";
+}
+
+.icon-yijianfankui:before {
+  content: "\e64e";
+}
+
+.icon-vimeo-v:before {
+  content: "\f25c";
+}
+
+.icon-bianjisekuai:before {
+  content: "\ec7c";
+}
+
+.icon-paihangbang:before {
+  content: "\e6f1";
+}
+
+.icon-fenxiang:before {
+  content: "\e602";
+}
+
+.icon-xiangyou:before {
+  content: "\e665";
+}
+
+.icon-soucang:before {
+  content: "\e664";
+}

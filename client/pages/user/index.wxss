@@ -1,1 +1,60 @@
-/* pages/user/index.wxss */
+.user_box {
+  width: 100vw;
+  height: 180rpx;
+  background-color: #fff;
+  padding: 0 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.user_name {
+  flex-grow: 2;
+  margin-left: 20rpx;
+}
+
+.user_img {
+  width: 120rpx;
+  height: 120rpx;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.user_img>image {
+  width: 100%;
+  height: 100%;
+}
+
+/* 会员中心列表 */
+.user_list {
+  margin-top: 40rpx;
+  background-color: #fff;
+  padding: 0 30rpx;
+}
+
+/* #EDEDED */
+.user_list_icon {
+  width: 60rpx;
+  height: 60rpx;
+  text-align: center;
+  line-height: 60rpx;
+  font-size: 20px;
+  
+}
+
+
+
+.bgset,
+.bgmessg {
+  background-size: 60rpx 60rpx;
+  background-repeat: no-repeat;
+}
+
+.user_list_min {
+  height: 84rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+}

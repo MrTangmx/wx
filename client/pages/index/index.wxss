@@ -1,19 +1,55 @@
-/**index.wxss**/
-.userinfo {
+.index_tab .bottom_scroll {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  line-height: 60rpx;
+}
+
+.index_tab .bottom_scroll .nav {
+  width: 20%;
+  display: inline-block;
+  white-space: normal;
+  text-align: center;
+  color: #6f7580;
+  font-size: 30rpx;
+  position: relative;
+}
+
+.index_tab .cur {
+  font-size: 32rpx;
+  color: #333;
+  font-weight: bold;
+}
+
+.index_tab .cur span {
+  width: 50rpx;
+  height: 8rpx;
+  border-radius: 5rpx;
+  background: #ff8700;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -1px;
+}
+
+.navIcon {
+  margin-top: 14rpx;
+  width: 100%;
+  height: 200rpx;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.navIcon_slf {
+  width: 110rpx;
+  height: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #aaa;
 }
 
-.userinfo-avatar {
-  overflow: hidden;
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
-
-.usermotto {
-  margin-top: 200px;
+.navIcon_item {
+  height: 55rpx;
+  width: 56rpx;
 }
