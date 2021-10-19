@@ -1,0 +1,13 @@
+<!-- 轮播图模块 -->
+<view style="position: relative;">
+  <swiper indicator-dots="{{indicatorDots}}" indicator-color="{{indicatorColor}}"
+    indicator-active-color="{{indicatorActiveColor}}" autoplay='{{autoplay}}' circular='{{circular}}'
+    current="{{current}}" vertical="{{vertical}}" bindchange='onSlideChangeEnd'>
+    <swiper-item wx:for="{{imgData}}" wx:key="*this">
+      <image mode="aspectFill" data-id='{{item.id}}' class="img_swiper" src="{{item.img}}"></image>
+    </swiper-item>
+  </swiper>
+  <view class="swiper_box">
+    <view class="swiper_title">{{swiper_title}}</view>
+  </view>
+</view>

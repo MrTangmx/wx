@@ -1,0 +1,24 @@
+/* components/swiper/swiper.wxss */
+.img_swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper_box {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 90rpx;
+  background-color: rgba(0, 0, 0, .3);
+  text-align: center;
+}
+
+.swiper_box .swiper_title {
+  width: 100vw;
+  line-height: 70rpx;
+  color: #fff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

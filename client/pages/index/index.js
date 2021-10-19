@@ -48,19 +48,46 @@ Page({
       }
     ],
     brand_id: 1, // 当前选中的id值
-    swiperImg: [{
+    swiper_img: [{
+        id: 0,
         img: 'https://dg-fd.zol-img.com.cn/t_s800x400/g6/M00/0A/0E/ChMkKmFs2ECIF8lBAAF7g9C6XBgAAUsKwDwPxIAAXub481.jpg',
         title: 'SA基站绝对主流NSA单模5G手机该升级了'
       },
       {
+        id: 1,
         img: 'https://dg-fd.zol-img.com.cn/t_s2000x2000/g6/M00/0B/00/ChMkKmFtHBeIPtFoAACqMhwHyRUAAUs0wDAlqAAAKpK331.jpg',
         title: '为何说11代酷睿是英特尔Evo认证笔记本的智能化动力枢纽'
       },
       {
+        id: 2,
         img: 'https://dg-fd.zol-img.com.cn/t_s800x400/g6/M00/0A/0E/ChMkKWFs2IiISDwGAAFGaG4prk4AAUsKwHCU_EAAUaA200.jpg',
         title: '苹果19日发布会前瞻:Mac和AirPods大升级'
       }
-    ]
+    ],
+    hot: [
+      '页面可自定义 支付宝升级首页可单独编辑 ', '丰田拟美国建电池工厂:服务混合动力和电动汽车', '苹果将语音助理Siri整合到Apple Music'
+    ],
+    list: [{
+      id: 1,
+      title: '打印快准狠 盘点三款好用的激光打印机',
+      imgArr: ['https://article-fd.zol-img.com.cn/t_s240x180/g6/M00/0B/02/ChMkKmFtRFGIH9zNAAQlMdUqCXoAAUtPgJZCHAABCVJ553.jpg', 'https://article-fd.zol-img.com.cn/t_s240x180/g6/M00/0B/02/ChMkKmFtRNeIIrB6AAGrn8ZKJP0AAUtPgPKaYoAAau3018.jpg', 'https://article-fd.zol-img.com.cn/t_s240x180/g6/M00/0B/02/ChMkKmFtRNeIIrB6AAGrn8ZKJP0AAUtPgPKaYoAAau3018.jpg'],
+      releaseTime: '2020-01-01'
+    }, {
+      id: 2,
+      title: '打印快准狠 盘点三款好用的激光打印机',
+      imgArr: ['https://article-fd.zol-img.com.cn/t_s240x180/g6/M00/0B/02/ChMkKmFtRFGIH9zNAAQlMdUqCXoAAUtPgJZCHAABCVJ553.jpg', 'https://article-fd.zol-img.com.cn/t_s240x180/g6/M00/0B/02/ChMkKmFtRNeIIrB6AAGrn8ZKJP0AAUtPgPKaYoAAau3018.jpg', 'https://article-fd.zol-img.com.cn/t_s240x180/g6/M00/0B/02/ChMkKmFtRNeIIrB6AAGrn8ZKJP0AAUtPgPKaYoAAau3018.jpg'],
+      releaseTime: '2020-01-01'
+    }, {
+      id: 3,
+      title: '打印快准狠 盘点三款好用的激光打印机',
+      imgArr: ['https://article-fd.zol-img.com.cn/t_s240x180/g6/M00/0B/02/ChMkKmFtRFGIH9zNAAQlMdUqCXoAAUtPgJZCHAABCVJ553.jpg', 'https://article-fd.zol-img.com.cn/t_s240x180/g6/M00/0B/02/ChMkKmFtRNeIIrB6AAGrn8ZKJP0AAUtPgPKaYoAAau3018.jpg', 'https://article-fd.zol-img.com.cn/t_s240x180/g6/M00/0B/02/ChMkKmFtRNeIIrB6AAGrn8ZKJP0AAUtPgPKaYoAAau3018.jpg'],
+      releaseTime: '2020-01-01'
+    }, {
+      id: 4,
+      title: '打印快准狠 盘点三款好用的激光打印机',
+      imgArr: ['https://article-fd.zol-img.com.cn/t_s240x180/g6/M00/0B/02/ChMkKmFtRFGIH9zNAAQlMdUqCXoAAUtPgJZCHAABCVJ553.jpg', 'https://article-fd.zol-img.com.cn/t_s240x180/g6/M00/0B/02/ChMkKmFtRNeIIrB6AAGrn8ZKJP0AAUtPgPKaYoAAau3018.jpg', 'https://article-fd.zol-img.com.cn/t_s240x180/g6/M00/0B/02/ChMkKmFtRNeIIrB6AAGrn8ZKJP0AAUtPgPKaYoAAau3018.jpg'],
+      releaseTime: '2020-01-01'
+    }]
   },
 
   /**
@@ -148,7 +175,13 @@ Page({
       brand_id: id
     })
 
-    this.triggerEvent("switchTap", id); //点击了导航,通知父组件重新渲染列表数据
+    this.triggerEvent(id); //点击了导航,通知父组件重新渲染列表数据
+  },
+  // 根据当前得id(也就是需要展示得导航得那个东西)请求对应得参数
+  jumpPage(e) {
+    console.log(e.currentTarget.dataset.id);
+    wx.navigateTo({
+      url: '/pages/deile/index?id=' + e.currentTarget.dataset.id,
+    })
   }
-
 })

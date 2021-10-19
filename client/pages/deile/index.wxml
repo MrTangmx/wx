@@ -1,0 +1,2 @@
+<!--pages/deile/index.wxml-->
+<text>{{info}}</text>

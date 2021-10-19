@@ -1,0 +1,19 @@
+/* components/list.wxss */
+.list_box {
+  width: calc(100vw - 30rpx);
+  height: 270rpx;
+  padding: 0 15rpx;
+  border-bottom: 1px solid #eee;
+
+}
+
+.img_box {
+  padding: 10rpx 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.img_box .img_item {
+  width: 30%;
+  height: 180rpx;
+}
