@@ -5,7 +5,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-    info: ''
+    showInput: true, //显示输入框
+    commentInfo: '', //评论内容
+    id: '',
+    list: [{
+      id: 1,
+      title: '打印快准狠 盘点三款好用的激光打印机',
+      imgArr: ['https://article-fd.zol-img.com.cn/t_s240x180/g6/M00/0B/02/ChMkKmFtRFGIH9zNAAQlMdUqCXoAAUtPgJZCHAABCVJ553.jpg', 'https://article-fd.zol-img.com.cn/t_s240x180/g6/M00/0B/02/ChMkKmFtRNeIIrB6AAGrn8ZKJP0AAUtPgPKaYoAAau3018.jpg', 'https://article-fd.zol-img.com.cn/t_s240x180/g6/M00/0B/02/ChMkKmFtRNeIIrB6AAGrn8ZKJP0AAUtPgPKaYoAAau3018.jpg'],
+      releaseTime: '2020-01-01'
+    }]
   },
 
   /**
@@ -13,9 +21,9 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      info: JSON.stringify(options)
+      id: JSON.stringify(options)
     })
-    console.log(this.data.info);
+    console.log(this.data.id);
   },
 
   /**
@@ -65,5 +73,38 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  // 跳转
+  jumpPage(e) {
+    console.log(e.currentTarget.dataset.id);
+    wx.navigateTo({
+      url: '/pages/deile/index?id=' + e.currentTarget.dataset.id,
+    })
+  },
+  // 点击评论框
+  changeInput() {
+    this.setData({
+      showInput: false
+    })
+  },
+  // 评论输入框失去焦点
+  changeState() {
+    this.setData({
+      showInput: true
+    })
+  },
+  // 获取评论类容
+  bindKeyInput(e) {
+    this.setData({
+      commentInfo: e.detail.value
+    })
+  },
+  // 发送评论
+  sendInfo() {
+    wx.showToast({
+      title: this.data.commentInfo,
+      icon: 'success',
+      duration: 2000
+    })
   }
 })

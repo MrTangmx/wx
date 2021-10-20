@@ -2,9 +2,15 @@
   <view class="nav_top">
     <!-- 搜索 -->
     <view class="seach">
-      <view class="seach_box">
+      <view wx:if="{{showInput}}" bindtap="changeInput" class="seach_box">
         <text class="iconfont icon-sousuo" style="color:#858585;margin-right: 20rpx;"></text>
         <text style="color:#767676">iphone16</text>
+      </view>
+      <view wx:else class="seach_box">
+        <input auto-focus bindinput="bindKeyInput" bindblur="changeState" placeholder="iphone16" />
+        <view wx:if="{{showSearchList}}" class="input_list">
+          <view class="input_list_item" wx:for="{{searchList}}" wx:key='*this'>{{item}}</view>
+        </view>
       </view>
     </view>
     <!-- 导航模块 -->
@@ -20,9 +26,9 @@
   </view>
 </view>
 <!-- 轮播 -->
-<customSwiper imgData="{{swiper_img}}"></customSwiper>
+<customSwiper wx:if="{{showSwiper}}" imgData="{{swiper_img}}"></customSwiper>
 <!-- 副导航 -->
-<view class="navIcon">
+<view wx:if="{{showNavIcon}}" class="navIcon">
   <view class="navIcon_slf">
     <view class="navIcon_item navIcon_elf_base64 navIcon_picture1"></view>
     <text style="font-size:24rpx">查报价</text>
@@ -73,7 +79,7 @@
   </view>
 </view>
 <!-- 热点精选 -->
-<view class="hot_exquisite">
+<view wx:if="{{showHotExquisite}}" class="hot_exquisite">
   <view class="icon_rdjx"></view>
   <view class="icon_content">
     <swiper autoplay='true' vertical='true' circular='true' style="height:36rpx">

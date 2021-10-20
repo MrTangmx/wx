@@ -1,1 +1,200 @@
 /* pages/deile/index.wxss */
+.main-article {
+  width: 100%;
+  padding: 20rpx 15rpx 0;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+.title {
+  font-size: 40rpx;
+  font-weight: 700;
+  color: #181818;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.author {
+  position: relative;
+  overflow: hidden;
+  padding: 5px 0;
+  margin: 10px 0 25px;
+  display: flex;
+  align-items: center;
+}
+
+.head_portrait {
+  width: 72rpx;
+  height: 72rpx;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.content {
+  padding: 0 20rpx;
+  flex: 1;
+}
+
+.attention_btn {
+  width: 140rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  font-size: 24rpx;
+  color: #fff;
+  background-color: #0886fd;
+  border-radius: 30rpx;
+}
+
+.nick_box {
+  display: flex;
+}
+
+.tag_root {
+  margin-left: 15rpx;
+  font-size: 20rpx;
+  background-color: #FF8B5F;
+  color: #fff;
+  padding: 0 8rpx;
+  border-radius: 6rpx;
+}
+
+.nick_call {
+  font-weight: 700;
+}
+
+
+.reading .reading_content {
+  margin-top: 20rpx;
+  background-color: #fff
+}
+
+.critic {
+  width: 100%;
+  padding: 20rpx 0;
+  margin-top: 10rpx;
+  border-bottom: 1px solid #F5F5F5;
+}
+
+.critic .critic_box {
+  width: 100%;
+}
+
+.critic_user {
+  display: flex;
+  font-size: 24rpx;
+  line-height: 52rpx;
+}
+
+.critic_user .nick_user {
+  width: 52rpx;
+  height: 52rpx;
+}
+
+.user_name {
+  width: 25%;
+  padding: 0 15rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.user_time {
+  flex: 1;
+  color: #aaa;
+}
+
+.user_size {
+  color: #888;
+}
+
+.critic_content {
+  width: 100%;
+  word-break: break-all;
+  height: auto;
+}
+
+.user_box {
+  width: 100%;
+  height: 80rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  border-top: 1px solid #F5F5F5;
+}
+
+.user_critic {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  flex: 1;
+}
+
+.input_con {
+  line-height: 54rpx;
+  background-color: #EDEDED;
+}
+
+
+
+.icon_btns {
+  margin-right: 20rpx;
+  width: 54rpx;
+  height: 54rpx;
+  background-color: #0888F5;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 54rpx
+}
+
+.input_box {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.weui_input {
+  margin: 0 auto;
+  width: 90%;
+  height: 54rpx;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  font-size: 26rpx;
+  border-radius: 30rpx;
+  border: 1px solid #EDEDED;
+  color: #666;
+}
+
+.send_btn {
+  width: 100rpx;
+  height: 48rpx;
+  margin-right: 20rpx;
+  text-align: center;
+  line-height: 48rpx;
+  border-radius: 26rpx;
+  color: #fff;
+  background-color: #059EFE;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* 引入外部样式 */
+@import '/components/list/list.wxss';
+
+.list_one_box {
+  padding: 0;
+}

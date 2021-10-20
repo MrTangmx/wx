@@ -1,2 +1,71 @@
 <!--pages/deile/index.wxml-->
-<text>{{info}}</text>
+<view class="main-article">
+  <view class="title">骁龙778G机型值不值得入手？看这篇你就懂了</view>
+  <view class="author">
+    <view class="head_portrait">
+      <image style="width:100%;height:100%" src="/image/tabBar/add.png"></image>
+    </view>
+    <view class="content">
+      <view class="nick_box">
+        <view class="fs12 nick_call">昵称</view>
+        <view class="tag_root">原创</view>
+      </view>
+      <view class="fs12">时间·作者标签</view>
+    </view>
+    <view class=" iconfont icon-zengjia attention_btn ">关注</view>
+  </view>
+
+  <view>
+    内容xxxxxxxxxxxxxxxxxxx
+  </view>
+  <view style="background-color: #F5F5F5;width:100vw;height:20rpx"></view>
+
+  <view class="reading">
+    <view style="font-size:24rpx;margin-top:10rpx;color:#999">相关阅读</view>
+    <view class="reading_content">
+      <import src="/components/list/list.wxml" />
+      <template is="list" data="{{list:list}}"></template>
+    </view>
+  </view>
+
+  <view style="background-color: #F5F5F5;width:100vw;height:20rpx"></view>
+  <view>
+    <view style="font-size:24rpx;color:#999;margin:20rpx;">全部评论</view>
+
+    <view class="critic">
+      <view class="critic_box critic_user">
+        <view class="nick_user">
+          <image style="width:100%;height:100%" src="/image/tabBar/add.png"></image>
+        </view>
+        <view class="user_name">名sssssssssssssssssss字</view>
+        <view class="user_time">时间</view>
+        <view class="user_size">1楼</view>
+      </view>
+      <view class="critic_content">
+        xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+      </view>
+    </view>
+
+  </view>
+
+</view>
+<!-- 评论模块 -->
+<view class="user_box">
+  <view wx:if="{{showInput}}" class="user_critic">
+    <view class="input">
+      <view bindtap="changeInput" class="weui_input input_con iconfont icon-bianjisekuai">
+        我来说两句
+      </view>
+    </view>
+    <view class="icon_btns iconfont icon-24gl-bubble2"></view>
+    <view class="icon_btns iconfont icon-dianzan "></view>
+    <view class="icon_btns iconfont icon-soucang"></view>
+    <view class="icon_btns iconfont icon-fenxiang"></view>
+  </view>
+  <view wx:else class="input_box">
+    <view class="input">
+      <input class="weui_input" auto-focus bindinput="bindKeyInput" bindblur="changeState" placeholder="谈谈你的看法吧!" />
+    </view>
+    <view class="send_btn" bindtap="sendInfo">发送</view>
+  </view>
+</view>

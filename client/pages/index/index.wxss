@@ -8,6 +8,7 @@
 }
 
 .seach .seach_box {
+  position: relative;
   margin: 0 auto;
   width: 98%;
   height: 50rpx;
@@ -22,6 +23,25 @@
   top: 0rpx;
   background-color: #fff;
   z-index: 9999;
+}
+
+.input_list {
+  width: 100%;
+  background-color: #333;
+  box-sizing: border-box;
+  position: absolute;
+  top: 60rpx;
+  left: 0;
+  z-index: 999999;
+}
+
+.input_list_item {
+  width: 100%;
+  height: 60rpx;
+  font-size: 28rpx;
+  padding: 0 10rpx;
+  background-color: #fff;
+  border-bottom: 1px solid #999;
 }
 
 /* 导航 */
@@ -138,11 +158,12 @@
 /* 热点精选 */
 
 .hot_exquisite {
-  width: 100vw;
+  width: 100%;
   height: 80rpx;
   border-top: 1px solid #FBFDF8;
   display: flex;
   padding: 0 15rpx;
+  box-sizing: border-box;
 }
 
 .hot_exquisite .icon_rdjx {
