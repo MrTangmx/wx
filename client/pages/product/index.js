@@ -5,7 +5,34 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    classify: ['手机', '笔记本', '相机', '整机平板', 'DIY硬件', '家用电器', '智能设备', '数码影音', '办公商务', '网络服务', '安全监控', '户外运动', '数码影音', '办公商务', '网络服务', '安全监控', '户外运动'],
+    current: 0,
+    detaileArr: {
+      title: '手机',
+      child: [
+        {
+          hotTitles: '热门品牌',
+          child: [{
+            id: 0,
+            image: 'https://2c.zol-img.com.cn/manu_photo/544.jpg',
+            name: '苹果'
+          }, {
+            id: 1,
+            image: 'https://2c.zol-img.com.cn/manu_photo/544.jpg',
+            name: '苹果'
+          }, {
+            id: 2,
+            image: 'https://2c.zol-img.com.cn/manu_photo/544.jpg',
+            name: '苹果'
+          }, {
+            id: 3,
+            image: 'https://2c.zol-img.com.cn/manu_photo/544.jpg',
+            name: '苹果'
+          }
+          ]
+        }
+      ]
+    },
   },
 
   /**
@@ -62,5 +89,16 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+  changeClass(e) {
+    this.setData({
+      current: e.target.dataset.index
+    })
+  },
+  touchSkip(e) {
+    console.log(e.currentTarget.dataset.id);
+    wx.navigateTo({
+      url: '/pages/ranking/index?id=' + e.currentTarget.dataset.id,
+    })
+  },
 })

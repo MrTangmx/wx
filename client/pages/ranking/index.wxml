@@ -1,11 +1,11 @@
-<!-- 问题列表 -->
+<!-- 产品列表 -->
 <view class="seach">
   <view wx:if="{{showInput}}" bindtap="changeInput" class="seach_box">
     <text class="iconfont icon-sousuo" style="color:#858585;margin-right: 20rpx;"></text>
-    <text style="color:#767676">请输入相关问题</text>
+    <text style="color:#767676">iphone16</text>
   </view>
   <view wx:else class="seach_box">
-    <input auto-focus bindinput="bindKeyInput" bindblur="changeState" placeholder="请输入相关问题" />
+    <input auto-focus bindinput="bindKeyInput" bindblur="changeState" placeholder="iphone16" />
     <view wx:if="{{showSearchList}}" class="input_list">
 
       <view class="input_list_item" wx:for="{{searchList}}" wx:key='*this'><text style="margin-right: 20rpx;"

@@ -1,5 +1,5 @@
 <view style="background-color: #ededed;">
-  <view class="user_box">
+  <view class="user_box" bindtap="showLogs">
     <view class="user_img">
       <open-data type="userAvatarUrl"></open-data>
     </view>

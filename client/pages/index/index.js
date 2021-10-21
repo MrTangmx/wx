@@ -158,4 +158,6 @@ Page({
       })
     }
   },
+  onLoad: function (options) {
+  },
 })
