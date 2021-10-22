@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "answersList": "/components/issue/index"
+  },
   "navigationBarTitleText": "问答"
 }

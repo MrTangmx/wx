@@ -9,14 +9,14 @@ Page({
   },
   getSession() {
     wx.showToast({
-      title: '信息管理',
+      title: '收藏管理',
       icon: 'success',
       duration: 2000
     })
   },
   getUser() {
     wx.showToast({
-      title: '会员中心',
+      title: '该模块开发中....',
       icon: 'success',
       duration: 2000
     })

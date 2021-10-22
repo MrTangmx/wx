@@ -1,10 +1,10 @@
 {
   "pages": [
-    "pages/answers/index",
     "pages/index/index",
+    "pages/creation/index",
+    "pages/answers/index",
     "pages/user/index",
     "pages/product/index",
-    "pages/creation/index",
     "pages/logs/logs",
     "pages/deile/index",
     "pages/ranking/index",

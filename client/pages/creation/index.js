@@ -1,66 +1,68 @@
-// pages/creation/index.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    formats: {},
+    imgArr: [],
+    inputValue: "",
+    valueText: ''
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  insertImage() {
+    const that = this
+    wx.chooseImage({
+      count: 9,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success: function (res) {
+        that.getpublish(res.tempFilePaths, 0)
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  // 递归循环下载图片
+  getpublish(list, i) {
+    wx.showLoading({
+      title: '正在上传第' + (i + 1) + '张',
+    })
+    var that = this
+    let arr = that.data.imgArr
+    wx.uploadFile({
+      url: "https://api110.herbplantist.com/sucai/public/index.php/post/post/uploadFile",
+      filePath: list[i],
+      name: 'file',
+      formData: {
+        key: 'Gn1xVdBiTClSSHKZifg0pTQSU5XGagWO',
+        is_https: 1,
+      },
+      success(res) {
+        var data = JSON.parse(res.data)
+        console.log(data)
+        if (data.status == 200) {
+          arr.push(data.info.url)
+          that.setData({
+            imgArr: arr
+          })
+        }
+        if (i + 1 == list.length) {
+          wx.showToast({
+            title: '上传成功',
+          });
+        }
+        wx.hideLoading()
+        if (++i < list.length) {
+          that.getpublish(list, i);
+        }
+      },
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  release() {
+    console.log(this.data.imgArr, this.data.inputValue, this.data.valueText);
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  bindKeyInput(e) {
+    this.setData({
+      inputValue: e.detail.value
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  bindTextInput(e) {
+    this.setData({
+      valueText: e.detail.value
+    })
   }
 })

@@ -1,0 +1,68 @@
+<!--components/issue/index.wxml-->
+<!-- 问题列表 -->
+<view>
+  <view class="list_box">
+    <view class="title">知道苹果序列号帮我查查这苹果是几个G的？苹果手机序列号g开头是什么意思？</view>
+    <view class="user">
+      <view class="user_img">
+        <image src="https://ask-fd.zol-img.com.cn/g6/M00/03/00/ChMkKWAFIo-IXzP3AAAtNFtgW48AAIecgEpU38AAC1M224.jpg">
+        </image>
+      </view>
+      <view class="user_name">jingmei35</view>
+      <view class="icon_zj">
+        <image src="https://icon.zol-img.com.cn/m/pages/ask/components/ask-list/images/export-tepin-65782efd38.png">
+        </image>
+        <!-- https://icon.zol-img.com.cn/m/pages/ask/components/ask-list/images/export-bianji-3fce988a37.png -->
+        <!-- https://icon.zol-img.com.cn/m/pages/ask/components/ask-list/images/export-jianxi-1232c7a147.png -->
+      </view>
+    </view>
+    <view style="position: relative;">
+      <view class="content  {{isText?'text':''}}">
+        刷机，手机方面的专业术语，是指通过一定的方法更改或替换手机中原本存在的一些语言、图片、铃声、软件或者操作系统。通俗来讲，刷机就是给手机重装系统。刷机可以使手机的功能更加完善，并且使手机还原到原始状态。一般情况下Android手机出现系统被损坏，造成功能失效或无法开机，也通常用刷机的方法恢复。刷机可以是官方的，也可以是非官方的。
+      </view>
+      <text class="iconfont {{isText?'icon-xiangxia':'icon-xiangshang2'}} icon_box" bindtap="showTextAll"></text>
+    </view>
+    <view class="tail">
+      <view style="display:flex;">
+        <view style="margin-right:20rpx">1000 浏览</view>
+        <view class="answer" bindtap="showCritic">评论<text style="font-size:24rpx"
+            class="iconfont {{showCritic?'icon-xiangshang2':'icon-xiangxia'}}"></text>
+        </view>
+        <view>收藏</view>
+      </view>
+      <view class="iconfont icon-bianjisekuai" style="font-size:24rpx">写回答</view>
+    </view>
+    <view wx:if="{{showCritic}}" class="critic">
+      <view>
+        <view class="critic_title">68评论</view>
+        <view class="critic_box">
+          <view class="critic_item">
+            <view class="user_img">
+              <image
+                src="https://ask-fd.zol-img.com.cn/g6/M00/03/00/ChMkKWAFIo-IXzP3AAAtNFtgW48AAIecgEpU38AAC1M224.jpg">
+              </image>
+            </view>
+            <view style="margin-left:20rpx;flex:1">名字</view>
+            <view style="color:#999">2020-06-17</view>
+          </view>
+          <view class="critic_content">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</view>
+        </view>
+
+        <view class="critic_box">
+          <view class="critic_item">
+            <view class="user_img">
+              <image
+                src="https://ask-fd.zol-img.com.cn/g6/M00/03/00/ChMkKWAFIo-IXzP3AAAtNFtgW48AAIecgEpU38AAC1M224.jpg">
+              </image>
+            </view>
+            <view style="margin-left:20rpx;flex:1">名字</view>
+            <view style="color:#999">2020-06-17</view>
+          </view>
+          <view class="critic_content">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</view>
+        </view>
+
+      </view>
+    </view>
+  </view>
+  <view style="width: 100%;height:16rpx;background-color: #ECECEC;"></view>
+</view>

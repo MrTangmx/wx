@@ -7,9 +7,10 @@
   <view wx:else class="seach_box">
     <input auto-focus bindinput="bindKeyInput" bindblur="changeState" placeholder="请输入相关问题" />
     <view wx:if="{{showSearchList}}" class="input_list">
-
       <view class="input_list_item" wx:for="{{searchList}}" wx:key='*this'><text style="margin-right: 20rpx;"
           class="iconfont icon-sousuo"></text>{{item}}</view>
     </view>
   </view>
 </view>
+
+<answersList></answersList>
