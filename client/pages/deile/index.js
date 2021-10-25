@@ -101,10 +101,38 @@ Page({
   },
   // 发送评论
   sendInfo() {
-    wx.showToast({
-      title: this.data.commentInfo,
-      icon: 'success',
-      duration: 2000
-    })
+
+
+    try {
+      let nickName = wx.getStorageSync('nickName')
+      if (nickName) {
+        debugger
+        wx.showToast({
+          title: this.data.commentInfo + nickName,
+          icon: 'success',
+          duration: 2000
+        })
+      } else {
+        wx.getUserProfile({
+          desc: '用于完善会员资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+          success: (data) => {
+            console.log(123456789);
+            wx.setStorageSync('nickName', data.userInfo.nickName)
+            wx.setStorageSync('avatarUrl', data.userInfo.avatarUrl)
+            wx.showToast({
+              title: this.data.commentInfo + wx.getStorageSync('nickName'),
+              icon: 'success',
+              duration: 2000
+            })
+          }
+        });
+      }
+
+
+    } catch (e) {
+
+    }
+
+
   }
 })

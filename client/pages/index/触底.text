@@ -1,0 +1,33 @@
+onReachBottom: function () {
+    if (this.data.page >= 2) {
+      this.setData({
+        page: -1
+      })
+    }
+    if (this.data.addlist.length !== 0) {
+      let that = this;
+      this.setData({
+        page: this.data.page += 1
+      })
+      wx.request({
+        url: 'http://localhost:86/home',
+        data: {
+          page: that.data.page
+        },
+        success(res) {
+          let list = res.data.data
+          list.forEach((item) => {
+            item.sellstate = '热门'
+          })
+          that.setData({
+            addlist: list
+          })
+          setTimeout(() => {
+            that.setData({
+              list: that.data.list.concat(that.data.addlist)
+            })
+          }, 500)
+        }
+      })
+    }
+  }

@@ -1,4 +1,4 @@
-// pages/answersdetails/index.js
+// pages/user/ss/index.js
 Page({
 
   /**
@@ -62,5 +62,11 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+  skipDetail(e) {
+    console.log(e.currentTarget.dataset.id);
+    wx.navigateTo({
+      url: '/pages/productdetails/index?id=' + e.currentTarget.dataset.id,
+    })
+  },
 })

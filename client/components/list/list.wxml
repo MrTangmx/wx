@@ -3,7 +3,7 @@
   <block wx:for="{{list}}" wx:key='index'>
     <view bindtap="jumpPage" data-id="{{item.id}}">
       <!-- 测评 -->
-      <view wx:if="" class="list_box">
+      <view class="list_box">
         <view style="font-size:30rpx">{{item.title}}</view>
         <view class="img_box">
           <image class="img_item" wx:for="{{item.imgArr}}" src="{{item}}"></image>
@@ -29,7 +29,7 @@
         </view>
       </view>
       <!-- 沙发 一张图 -->
-      <view class="list_one_box">
+      <view wx:if="" class="list_one_box">
         <view class="list_box_left">
           <view style="font-size:30rpx">{{item.title}}</view>
           <view style="font-size:24rpx;">

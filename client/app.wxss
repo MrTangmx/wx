@@ -14,3 +14,9 @@
 .fs12 {
   font-size: 24rpx;
 }
+
+.fontOmit {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

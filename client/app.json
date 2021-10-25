@@ -1,15 +1,15 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/productdetails/index",
+    "pages/ranking/index",
     "pages/creation/index",
     "pages/answers/index",
-    "pages/user/index",
     "pages/product/index",
     "pages/logs/logs",
+    "pages/user/index",
     "pages/deile/index",
-    "pages/ranking/index",
-    "pages/productdetails/index",
-    "pages/answersdetails/index"
+    "pages/collect/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

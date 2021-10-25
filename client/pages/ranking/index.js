@@ -34,4 +34,10 @@ Page({
       })
     }
   },
+  skipDetail(e) {
+    console.log(e.currentTarget.dataset.id);
+    wx.navigateTo({
+      url: '/pages/productdetails/index?id=' + e.currentTarget.dataset.id,
+    })
+  },
 })
