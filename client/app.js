@@ -16,6 +16,21 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    URL: 'http://127.0.0.1:8080',
+  },
+  wxRequest(method, url, data, callback, errFun) {
+    wx.request({
+      url: this.globalData.URL + url,
+      method: method,
+      data: data,
+      dataType: 'json',
+      success: function (res) {
+        callback(res.data);
+      },
+      fail: function (err) {
+        errFun(err);
+      }
+    })
   }
 })

@@ -1,4 +1,6 @@
 // pages/product/index.js
+
+const app = getApp();
 Page({
 
   /**
@@ -124,7 +126,13 @@ Page({
     this.triggerEvent(id); //点击了导航,通知父组件重新渲染列表数据
   },
   triggerEvent(id) {
-    console.log(id);
+    app.wxRequest('POST', "/list", { image: ['https://article-fd.zol-img.com.cn/t_s240x180/g6/M00/0B/02/ChMkKmFtRFGIH9zNAAQlMdUqCXoAAUtPgJZCHAABCVJ553.jpg', 'https://article-fd.zol-img.com.cn/t_s240x180/g6/M00/0B/02/ChMkKmFtRNeIIrB6AAGrn8ZKJP0AAUtPgPKaYoAAau3018.jpg', 'https://article-fd.zol-img.com.cn/t_s240x180/g6/M00/0B/02/ChMkKmFtRNeIIrB6AAGrn8ZKJP0AAUtPgPKaYoAAau3018.jpg'] }, (res) => {
+      console.log(res)
+    }, (err) => {
+      debugger
+      console.log(err.errMsg)
+    })
+
   },
   // 根据当前得id(也就是需要展示得导航得那个东西)请求对应得参数
   jumpPage(e) {

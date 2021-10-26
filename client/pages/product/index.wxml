@@ -1,7 +1,8 @@
 <!--pages/product/index.wxml-->
 <view class="product">
   <scroll-view scroll-y='true' class="left_list" bindtap="changeClass">
-    <view wx:for="{{classify}}" class="left_item {{index == current?'white':''}}" data-index="{{index}}">{{item}}</view>
+    <view wx:for="{{classify}}" class="left_item {{index == current?'white':''}}" data-index="{{index + 1}}">{{item}}
+    </view>
   </scroll-view>
   <view class="right_list">
     <view class="right_item">
