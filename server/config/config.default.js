@@ -28,8 +28,16 @@ module.exports = (appInfo) => {
     listen: {
       path: "",
       port: 8080,
-      hostname: "192.168.1.12", //默认localhost和ip地址,上线时用0.0.0.0
+      hostname: "localhost", //默认localhost和ip地址,上线时用0.0.0.0
     },
+  };
+  // 配置安全验证
+  config.security = {
+    csrf: {
+      enable: false,
+      ignoreJSON: true,
+    },
+    domainWhiteList: ["*"], //[]中放放出的白名单，*代表所有
   };
   //跨域配置
   userConfig.cors = {
@@ -41,30 +49,30 @@ module.exports = (appInfo) => {
     allowMethods: "GET,HEAD,PUT,POST,DELETE,PATCH",
     credentials: true,
   };
-//文件上传方式
-userConfig.multipart = {
-  mode: 'file',
-};
+  //文件上传方式
+  userConfig.multipart = {
+    mode: "file",
+  };
 
-userConfig.mysql = {
-  // 单数据库信息配置
-  client: {
+  userConfig.mysql = {
+    // 单数据库信息配置
+    client: {
       // host
-      host: 'localhost',
+      host: "localhost",
       // 端口号
-      port: '3306',
+      port: "3306",
       // 用户名
-      user: 'root',
+      user: "root",
       // 密码
-      password: 'root',
+      password: "root",
       // 数据库名
-      database: 'barley',
-  },
-  // 是否加载到 app 上，默认开启
-  app: true,
-  // 是否加载到 agent 上，默认关闭
-  agent: false,
-};
+      database: "wx_forum",
+    },
+    // 是否加载到 app 上，默认开启
+    app: true,
+    // 是否加载到 agent 上，默认关闭
+    agent: false,
+  };
   return {
     ...config,
     ...userConfig,
