@@ -5,18 +5,41 @@ const Controller = require('egg').Controller;
 class HomeController extends Controller {
   async index() {
     const { ctx } = this;
-  
     ctx.body = ctx.query;
   }
 
   
-  async list() {
+  async List() {
     const { ctx } = this;
-    const data = ctx.request.body
-    console.log(data);
-    const result = await ctx.service.home.list(data)
+    const data = ctx.query;
+    const result = await ctx.service.home.List(data)
     ctx.body = result
   }
+
+  async hotList(){
+    const { ctx } = this;
+    const result = await ctx.service.home.hotList()
+    ctx.body = result
+  }
+  async search(){
+    const { ctx } = this;
+    const id = ctx.query;
+    const result = await ctx.service.home.search(id)
+    ctx.body=result
+  }
+  async indexList(){
+    const { ctx } = this;
+    const data = ctx.query;
+    const result = await ctx.service.home.indexList(data)
+    ctx.body=result
+  }
+  async swiper(){
+    const { ctx } = this;
+    const data = ctx.query;
+    const result = await ctx.service.home.swiper(data)
+    ctx.body=result
+  }
+
 }
 
 module.exports = HomeController;
