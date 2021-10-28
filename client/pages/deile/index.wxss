@@ -77,6 +77,10 @@
   border-bottom: 1px solid #F5F5F5;
 }
 
+image {
+  width: 100%;
+}
+
 .critic .critic_box {
   width: 100%;
 }
@@ -122,6 +126,8 @@
   bottom: 0;
   left: 0;
   border-top: 1px solid #F5F5F5;
+  background-color: #fff;
+
 }
 
 .user_critic {

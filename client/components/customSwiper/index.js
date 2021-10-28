@@ -65,7 +65,7 @@ Component({
   lifetimes: {
     ready() {
       this.setData({
-        "swiper_title": this.data.imgData[0].title
+        "swiper_title": this.data.imgData[0].title ? this.data.imgData[0].title : '正在加载中！请稍后......'
       })
     }
   },

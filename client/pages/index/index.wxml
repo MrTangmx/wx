@@ -1,4 +1,4 @@
-<view style="width:100%;height:120rpx">
+<view style="width:100%;height:120rpx" bindtap="changeState">
   <view class="nav_top">
     <!-- 搜索 -->
     <view class="seach">
@@ -7,11 +7,13 @@
         <text style="color:#767676">iphone16</text>
       </view>
       <view wx:else class="seach_box">
-        <input auto-focus bindinput="bindKeyInput" bindblur="changeState" placeholder="iphone16" />
-        <view wx:if="{{showSearchList}}" class="input_list">
-
-          <view class="input_list_item" wx:for="{{searchList}}" wx:key='*this'><text style="margin-right: 20rpx;"
-              class="iconfont icon-sousuo"></text>{{item}}</view>
+        <input auto-focus bindinput="bindKeyInput" placeholder="iphone16" />
+        <view wx:if="{{showSearchList}}" class="input_list" bindtap="getconnet">
+          <scroll-view scroll-y="true" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll"
+            scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+            <view class="input_list_item" wx:for="{{searchList}}" wx:key='*this' data-id="{{item.article_id}}"><text
+                style="margin-right: 20rpx;" class="iconfont icon-sousuo"></text>{{item.title}}</view>
+          </scroll-view>
         </view>
       </view>
     </view>
@@ -28,7 +30,7 @@
   </view>
 </view>
 <!-- 轮播 -->
-<customSwiper wx:if="{{showSwiper}}" imgData="{{swiper_img}}"></customSwiper>
+<customSwiper wx:if="{{showSwiper}}" imgData="{{swiper_img}}" stitle="{{stitle}}"></customSwiper>
 <!-- 副导航 -->
 <view wx:if="{{showNavIcon}}" class="navIcon">
   <view class="navIcon_slf">

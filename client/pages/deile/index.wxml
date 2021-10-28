@@ -1,22 +1,22 @@
 <!--pages/deile/index.wxml-->
 <view class="main-article">
-  <view class="title">骁龙778G机型值不值得入手？看这篇你就懂了</view>
+  <view class="title">{{detail.title}}</view>
   <view class="author">
     <view class="head_portrait">
-      <image style="width:100%;height:100%" src="/image/tabBar/add.png"></image>
+      <image style="width:100%;height:100%" src="{{detail.avatarUrl}}"></image>
     </view>
     <view class="content">
       <view class="nick_box">
-        <view class="fs12 nick_call">昵称</view>
-        <view class="tag_root">原创</view>
+        <view class="fs12 nick_call">{{detail.name}}</view>
+        <view class="tag_root">{{detail.named==0?'原创':detail.named==1?'转发':'大神'}}</view>
       </view>
-      <view class="fs12">时间·作者标签</view>
+      <view class="fs12">{{detail.ctime}}</view>
     </view>
     <view class=" iconfont icon-zengjia attention_btn ">关注</view>
   </view>
 
   <view>
-    内容xxxxxxxxxxxxxxxxxxx
+    <image wx:for="{{detail.image}}" src="{{item}}"></image>
   </view>
   <view style="background-color: #F5F5F5;width:100vw;height:20rpx"></view>
 

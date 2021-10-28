@@ -1,44 +1,45 @@
 <!--components/list.wxml-->
 <template name="list">
   <block wx:for="{{list}}" wx:key='index'>
-    <view bindtap="jumpPage" data-id="{{item.id}}">
+    <view bindtap="jumpPage" data-id="{{item.article_id}}">
       <!-- 测评 -->
-      <view class="list_box">
-        <view style="font-size:30rpx">{{item.title}}</view>
+      <view wx:if="{{item.imageNum == 3}}" class="list_box">
+        <view class="fontOmit" style="font-size:30rpx;">{{item.title}}</view>
         <view class="img_box">
-          <image class="img_item" wx:for="{{item.imgArr}}" src="{{item}}"></image>
+          <image class="img_item" wx:for="{{item.image}}" src="{{item}}"></image>
         </view>
         <view style="font-size:24rpx;">
           <text style="color:#0A89FA">测评</text>
-          <text style="margin: 0 0 0 20rpx;color:#a0a0a0;">{{item.releaseTime}}</text>
+          <text style="margin: 0 0 0 20rpx;color:#a0a0a0;">{{item.ctime}}</text>
         </view>
       </view>
+
       <!-- 图赏 -->
       <view wx:if="" class="img_ceping_box">
-        <view style="font-size:30rpx">{{item.title}}</view>
+        <view class="fontOmit" style="font-size:30rpx">{{item.title}}</view>
         <view class="img_box">
-          <image class="img_ceping_item" src="{{item.imgArr[0]}}"></image>
+          <image class="img_ceping_item" src="{{item.image[0]}}"></image>
           <view style="width:34.5%">
-            <image class="img_tushang_item" src="{{item.imgArr[1]}}"></image>
-            <image class="img_tushang_item" src="{{item.imgArr[2]}}"></image>
+            <image class="img_tushang_item" src="{{item.image[1]}}"></image>
+            <image class="img_tushang_item" src="{{item.image[2]}}"></image>
           </view>
         </view>
         <view style="font-size:24rpx;">
           <text style="color:#0A89FA">图赏</text>
-          <text style="margin: 0 0 0 20rpx; color:#a0a0a0;">{{item.releaseTime}}</text>
+          <text style="margin: 0 0 0 20rpx; color:#a0a0a0;">{{item.ctime}}</text>
         </view>
       </view>
       <!-- 沙发 一张图 -->
-      <view wx:if="" class="list_one_box">
-        <view class="list_box_left">
+      <view wx:if="{{item.imageNum == 1}}" class="list_one_box">
+        <view class="fontOmit" class="list_box_left">
           <view style="font-size:30rpx">{{item.title}}</view>
           <view style="font-size:24rpx;">
             <text style="color:#a0a0a0">抢沙发</text>
-            <text style="margin: 0 0 0 20rpx;color:#a0a0a0;">{{item.releaseTime}}</text>
+            <text style="margin: 0 0 0 20rpx;color:#a0a0a0;">{{item.ctime}}</text>
           </view>
         </view>
         <view class="list_box_right">
-          <image class="img_one_item" src="{{item.imgArr[0]}}"></image>
+          <image class="img_one_item" src="{{item.image[0]}}"></image>
         </view>
       </view>
     </view>
