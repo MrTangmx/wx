@@ -8,29 +8,29 @@
 
 <view class="product-price-wrap">
   <view>
-    <p class="product-price-new">￥7935.84</p>
-    <p class="product-price-old">原价￥9018.00</p>
-    <p class="discount">8.8折</p>
+    <p class="product-price-new">￥{{productList.lowPrice}}</p>
+    <p class="product-price-old">原价￥{{productList.highPrice}}</p>
+    <p class="discount">{{(productList.lowPrice/productList.highPrice-0.1)*10}}折</p>
   </view>
 </view>
 <view class="product-name-wrap">
-  <text>Apple iPhone X手机 苹果x 全网通4G 全面屏手机 银色 官方标配 256G</text>
+  <text>{{productList.name}}</text>
 </view>
 
 <view class="mt20 critic">
   <view style="margin:0 15rpx; ">评论</view>
   <view>
 
-    <view class="critic_box">
+    <view wx:for="{{productList.content_prodict}}" class="critic_box">
       <view class="critic_item">
         <view class="user_img">
-          <image src="https://ask-fd.zol-img.com.cn/g6/M00/03/00/ChMkKWAFIo-IXzP3AAAtNFtgW48AAIecgEpU38AAC1M224.jpg">
+          <image src="{{item.avatarUrl}}">
           </image>
         </view>
-        <view style="margin-left:20rpx;flex:1">名字</view>
-        <view style="color:#999">2020-06-17</view>
+        <view style="margin-left:20rpx;flex:1">{{item.nickName}}</view>
+        <view style="color:#999">{{item.setTime}}</view>
       </view>
-      <view class="critic_content">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</view>
+      <view class="critic_content">{{item.content_prodict}}</view>
     </view>
 
   </view>

@@ -1,4 +1,6 @@
 // index/details.js
+const app = getApp();
+
 Page({
 
   data: {
@@ -19,27 +21,8 @@ Page({
     duration: 1000, // 滑动动画时长1s
     detailImg: [],
     //产品列表
-    list: [{
-      id: 1,
-      title: '打印快准狠 盘点三款好用的激光打印机',
-      imgArr: ['https://article-fd.zol-img.com.cn/t_s240x180/g6/M00/0B/02/ChMkKmFtRFGIH9zNAAQlMdUqCXoAAUtPgJZCHAABCVJ553.jpg', 'https://article-fd.zol-img.com.cn/t_s240x180/g6/M00/0B/02/ChMkKmFtRNeIIrB6AAGrn8ZKJP0AAUtPgPKaYoAAau3018.jpg', 'https://article-fd.zol-img.com.cn/t_s240x180/g6/M00/0B/02/ChMkKmFtRNeIIrB6AAGrn8ZKJP0AAUtPgPKaYoAAau3018.jpg'],
-      releaseTime: '2020-01-01'
-    }, {
-      id: 2,
-      title: '打印快准狠 盘点三款好用的激光打印机',
-      imgArr: ['https://article-fd.zol-img.com.cn/t_s240x180/g6/M00/0B/02/ChMkKmFtRFGIH9zNAAQlMdUqCXoAAUtPgJZCHAABCVJ553.jpg', 'https://article-fd.zol-img.com.cn/t_s240x180/g6/M00/0B/02/ChMkKmFtRNeIIrB6AAGrn8ZKJP0AAUtPgPKaYoAAau3018.jpg', 'https://article-fd.zol-img.com.cn/t_s240x180/g6/M00/0B/02/ChMkKmFtRNeIIrB6AAGrn8ZKJP0AAUtPgPKaYoAAau3018.jpg'],
-      releaseTime: '2020-01-01'
-    }, {
-      id: 3,
-      title: '打印快准狠 盘点三款好用的激光打印机',
-      imgArr: ['https://article-fd.zol-img.com.cn/t_s240x180/g6/M00/0B/02/ChMkKmFtRFGIH9zNAAQlMdUqCXoAAUtPgJZCHAABCVJ553.jpg', 'https://article-fd.zol-img.com.cn/t_s240x180/g6/M00/0B/02/ChMkKmFtRNeIIrB6AAGrn8ZKJP0AAUtPgPKaYoAAau3018.jpg', 'https://article-fd.zol-img.com.cn/t_s240x180/g6/M00/0B/02/ChMkKmFtRNeIIrB6AAGrn8ZKJP0AAUtPgPKaYoAAau3018.jpg'],
-      releaseTime: '2020-01-01'
-    }, {
-      id: 4,
-      title: '打印快准狠 盘点三款好用的激光打印机',
-      imgArr: ['https://article-fd.zol-img.com.cn/t_s240x180/g6/M00/0B/02/ChMkKmFtRFGIH9zNAAQlMdUqCXoAAUtPgJZCHAABCVJ553.jpg', 'https://article-fd.zol-img.com.cn/t_s240x180/g6/M00/0B/02/ChMkKmFtRNeIIrB6AAGrn8ZKJP0AAUtPgPKaYoAAau3018.jpg', 'https://article-fd.zol-img.com.cn/t_s240x180/g6/M00/0B/02/ChMkKmFtRNeIIrB6AAGrn8ZKJP0AAUtPgPKaYoAAau3018.jpg'],
-      releaseTime: '2020-01-01'
-    }],
+    list: [],
+    dataObj: {},
 
   },
   //预览图片
@@ -57,5 +40,31 @@ Page({
       url: '/pages/deile/index?id=' + e.currentTarget.dataset.id,
     })
   },
-
+  /**
+  * 生命周期函数--监听页面加载
+  */
+  onLoad: function (options) {
+    // 查询产品库
+    app.wxRequest('GET', "/getDeilePage", { id: options.id }, (res) => {
+      this.setData({
+        productList: res
+      })
+    })
+    this.getList()
+  },
+  getList(page, size, type) {
+    app.wxRequest('GET', "/list", { page, size, type }, (res) => {
+      let arr = res
+      arr.forEach((item, i) => {
+        let iarr = item.image.split(',')
+        iarr.length > 3 ? iarr.pop() : false
+        arr[i].image = iarr
+        arr[i].imageNum = iarr.length
+      })
+      this.setData({
+        list: arr
+      })
+    }, (err) => {
+    })
+  },
 })

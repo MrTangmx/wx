@@ -261,6 +261,7 @@ Page({
     }
   },
   onReachBottom: function () {
+    console.log(125555);
     app.wxRequest('GET', "/list", { page: this.data.page, size: this.data.size }, (res) => {
       let arr = res
       arr.forEach((item, i) => {

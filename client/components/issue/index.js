@@ -1,10 +1,13 @@
 // components/issue/index.js
+const app = getApp();
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-
+    answersList: {
+      type: Array
+    }
   },
 
   /**
@@ -12,7 +15,8 @@ Component({
    */
   data: {
     isText: true,
-    showCritic: false
+    showCritic: false,
+    centre: 0,
   },
 
   /**
@@ -24,10 +28,24 @@ Component({
         isText: !this.data.isText
       })
     },
-    showCritic() {
+    showCritic(e) {
+      console.log(e.currentTarget.dataset.id);
+      this.setData({
+        centre: e.currentTarget.dataset.id
+      })
+      if (!this.data.showCritic) {
+        app.wxRequest('GET', "/getAnswersItem", { id: e.currentTarget.dataset.id }, (res) => {
+
+        }, (err) => {
+        })
+      }
+
+      // console.log(e.currentTarget.dataset);
       this.setData({
         showCritic: !this.data.showCritic
       })
     }
+  },
+  onLoad: function (options) {
   }
 })

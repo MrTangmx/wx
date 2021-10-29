@@ -13,4 +13,4 @@
   </view>
 </view>
 
-<answersList></answersList>
+<answersList answersList='{{answersList}}'></answersList>

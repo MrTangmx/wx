@@ -35,7 +35,6 @@
 
 .item_box {
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
 }
 
@@ -47,7 +46,7 @@
   justify-content: space-between;
   padding: 20rpx 0;
   box-sizing: border-box;
-
+  margin: 0 8rpx;
 }
 
 .item .item_img {

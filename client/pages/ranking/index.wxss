@@ -56,7 +56,7 @@
   box-sizing: border-box;
   padding: 20rpx;
   display: flex;
-
+  border-bottom: 1px solid #ededed;
 }
 
 .img_box {
@@ -82,6 +82,7 @@ image {
 
 .rank_peizhi {
   font-size: 26rpx;
+  height: 46rpx;
 }
 
 .rank_price {

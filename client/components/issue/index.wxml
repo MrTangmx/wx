@@ -1,6 +1,6 @@
 <!--components/issue/index.wxml-->
 <!-- 问题列表 -->
-<view>
+<view wx:for="{{answersList}}">
   <view class="list_box">
     <view class="title">知道苹果序列号帮我查查这苹果是几个G的？苹果手机序列号g开头是什么意思？</view>
     <view class="user">
@@ -25,14 +25,14 @@
     <view class="tail">
       <view style="display:flex;">
         <view style="margin-right:20rpx">1000 浏览</view>
-        <view class="answer" bindtap="showCritic">评论<text style="font-size:24rpx"
+        <view data-id="{{item.answers_id}}" class="answer" bindtap="showCritic">评论<text style="font-size:24rpx"
             class="iconfont {{showCritic?'icon-xiangshang2':'icon-xiangxia'}}"></text>
         </view>
         <view>收藏</view>
       </view>
       <view class="iconfont icon-bianjisekuai" style="font-size:24rpx">写回答</view>
     </view>
-    <view wx:if="{{showCritic}}" class="critic">
+    <view wx:if="{{index == centre ? showCritic:''}}" data-index="{{index}}" class="critic">
       <view>
         <view class="critic_title">68评论</view>
         <view class="critic_box">

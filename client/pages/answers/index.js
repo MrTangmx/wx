@@ -1,4 +1,5 @@
 // pages/ranking/index.js
+const app = getApp();
 Page({
 
   /**
@@ -8,6 +9,7 @@ Page({
     showInput: true, //搜索
     showSearchList: false, //搜索列表 
     searchList: ['点击完成按钮时触发，event.detail = { value }', '点击完成按钮时触发，event.detail = { value }', '点击完成按钮时触发，event.detail = { value }'],
+    answersList: []
   },
   //改变搜索框
   changeInput() {
@@ -33,5 +35,20 @@ Page({
         showSearchList: false
       })
     }
+  },
+  // 获取问答列表
+  getAnswers(page, size) {
+    app.wxRequest('GET', "/getAnswers", { page, size }, (res) => {
+      this.setData({
+        answersList: res
+      })
+    }, (err) => {
+    })
+  },
+  onLoad: function (options) {
+    this.getAnswers(1, 5)
+  },
+  onReachBottom: function () {
+
   },
 })

@@ -1,4 +1,5 @@
 // pages/product/index.js
+const app = getApp();
 Page({
 
   /**
@@ -7,39 +8,14 @@ Page({
   data: {
     classify: ['手机', '笔记本', '相机', '数码', 'DIY硬件', '家电', '办公投影', '游戏机', '网络', '安防', '汽车用品', '智能生活'],
     current: 0,
-    detaileArr: {
-      title: '手机',
-      child: [
-        {
-          hotTitles: '热门品牌',
-          child: [{
-            id: 0,
-            image: 'https://2c.zol-img.com.cn/manu_photo/544.jpg',
-            name: '苹果'
-          }, {
-            id: 1,
-            image: 'https://2c.zol-img.com.cn/manu_photo/544.jpg',
-            name: '苹果'
-          }, {
-            id: 2,
-            image: 'https://2c.zol-img.com.cn/manu_photo/544.jpg',
-            name: '苹果'
-          }, {
-            id: 3,
-            image: 'https://2c.zol-img.com.cn/manu_photo/544.jpg',
-            name: '苹果'
-          }
-          ]
-        }
-      ]
-    },
+    detaileArr: [],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getProduct(1)
   },
 
   /**
@@ -93,6 +69,17 @@ Page({
   changeClass(e) {
     this.setData({
       current: e.target.dataset.index
+    })
+    this.getProduct(e.target.dataset.index + 1)
+
+
+  },
+  // 查询产品库
+  getProduct(id) {
+    app.wxRequest('GET', "/getProduct", { id }, (res) => {
+      this.setData({
+        detaileArr: res
+      })
     })
   },
   touchSkip(e) {
