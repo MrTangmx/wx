@@ -13,6 +13,12 @@ module.exports = app => {
   router.get('/indexList', controller.home.indexList);
   router.get('/swiper', controller.home.swiper);
   router.get('/getDeile', controller.deile.getDeile);
+  router.get('/getProduct', controller.product.getProduct);
+  router.get('/getProductList', controller.product.getProductList); 
+  router.get('/getDeilePage', controller.product.getDeilePage); 
+  router.get('/getAnswers', controller.deile.getAnswers); 
+  router.get('/getAnswersItem', controller.deile.getAnswersItem); 
+
   
 
 
