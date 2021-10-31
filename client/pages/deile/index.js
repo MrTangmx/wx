@@ -127,7 +127,6 @@ Page({
     try {
       let nickName = wx.getStorageSync('nickName')
       if (nickName) {
-        debugger
         wx.showToast({
           title: this.data.commentInfo + nickName,
           icon: 'success',

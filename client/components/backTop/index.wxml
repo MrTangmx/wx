@@ -1,0 +1,5 @@
+<view wx:if="{{backTopValue}}" 
+  class="back-top"
+  catchtap="backTop" >
+  <text>顶部</text>
+</view>

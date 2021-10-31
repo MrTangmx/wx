@@ -97,3 +97,5 @@
   <import src="/components/list/list.wxml" />
   <template is="list" data="{{list:list}}"></template>
 </view>
+
+<i-top backTopValue="{{backTopValue}}" bind:backTop="backTop"></i-top>

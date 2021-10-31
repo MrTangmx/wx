@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "customSwiper": "/components/customSwiper/index"
+    "customSwiper": "/components/customSwiper/index",
+    "i-top":"/components/backTop/index"
   }
 }

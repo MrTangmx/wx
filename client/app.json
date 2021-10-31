@@ -1,11 +1,11 @@
 {
   "pages": [
-    "pages/answers/index",
     "pages/index/index",
     "pages/productdetails/index",
     "pages/ranking/index",
     "pages/creation/index",
     "pages/product/index",
+    "pages/answers/index",
     "pages/logs/logs",
     "pages/user/index",
     "pages/deile/index",

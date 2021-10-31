@@ -65,6 +65,7 @@ Page({
     page: 1,
     size: 5,
     timer: null,
+    backTopValue:false,
   },
 
   switchTap(e) { //更换资讯大类
@@ -170,6 +171,21 @@ Page({
     }
 
   },
+  // 监听滚动条坐标
+  onPageScroll: function (e) {
+    const that = this
+    let scrollTop = e.scrollTop
+    let backTopValue = scrollTop > 500 ? true : false
+    that.setData({
+      backTopValue
+    })
+  },
+//返回顶部
+backTop(){
+  wx.pageScrollTo({
+    scrollTop: 0,
+  })
+},
   //获取到输入内容
   bindKeyInput(e) {
     clearTimeout(this.data.timer)
@@ -276,12 +292,4 @@ Page({
     }, (err) => {
     })
   },
-  getUserProfile() {
-    wx.getUserProfile({
-      desc: '用于完善会员资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
-      success: (data) => {
-        console.log(data.userInfo)
-      }
-    });
-  }
 })
