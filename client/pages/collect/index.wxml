@@ -1,21 +1,4 @@
-<!--pages/user/ss/index.wxml-->
-<view class="rank_box">
-  <view class="rank_item" bindtap="skipDetail" data-id="2">
-    <view class="img_box">
-      <image src="https://2a.zol-img.com.cn/product/206_800x600/722/ceKJZv1wV1mTA.jpg"></image>
-    </view>
-    <view class="rank_deail">
-      <view class="rank_title fontOmit">酷比X60 Pro（8GB/128GB/全网通）</view>
-      <view class="rank_peizhi fontOmit">后置:2100万像素主镜头;前置:1300万像素;内存:8GB;电池:4000mAh不可拆卸式电池;屏幕:6.5英寸;存储:128GB;</view>
-      <view class="iconfont icon-qianqian- rank_price ">599 起 <text></text></view>
-      <view style="display:flex; align-items: center;">
-        <view class="rank_pinjia">
-          <view class="fengshu" style="width:58%"></view>
-        </view>
-        <text style="font-size:24rpx;color:red;margin:0 15rpx">{{4.9/5*10}}</text>
-        <text style="font-size:24rpx;color:#999">48人评价</text>
-      </view>
-    </view>
-
-  </view>
+<view>
+  <import src="/components/list/list.wxml" />
+  <template is="list" data="{{list:list}}"></template>
 </view>

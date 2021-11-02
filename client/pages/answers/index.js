@@ -9,7 +9,25 @@ Page({
     showInput: true, //搜索
     showSearchList: false, //搜索列表 
     searchList: ['点击完成按钮时触发，event.detail = { value }', '点击完成按钮时触发，event.detail = { value }', '点击完成按钮时触发，event.detail = { value }'],
-    answersList: []
+    answersList: [],
+    page: 1,
+    size: 5,
+    backTopValue: false,
+
+  },
+  // 监听滚动条坐标
+  onPageScroll: function (e) {
+    const that = this
+    let scrollTop = e.scrollTop
+    let backTopValue = scrollTop > 500 ? true : false
+    that.setData({
+      backTopValue
+    })
+  },
+  backTop() {
+    wx.pageScrollTo({
+      scrollTop: 0,
+    })
   },
   //改变搜索框
   changeInput() {
@@ -40,15 +58,21 @@ Page({
   getAnswers(page, size) {
     app.wxRequest('GET', "/getAnswers", { page, size }, (res) => {
       this.setData({
-        answersList: res
+        answersList: this.data.answersList.concat(res)
       })
     }, (err) => {
     })
   },
   onLoad: function (options) {
-    this.getAnswers(1, 5)
+    this.getAnswers(this.data.page, this.data.size)
   },
   onReachBottom: function () {
 
+  },
+  onReachBottom: function () {
+    this.setData({
+      page: this.data.page += 1
+    })
+    this.getAnswers(this.data.page, this.data.size)
   },
 })

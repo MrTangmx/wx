@@ -1,4 +1,5 @@
 // pages/user/index.js
+const app = getApp();
 Page({
 
   /**
@@ -8,17 +9,28 @@ Page({
     image: ''
   },
   getSession() {
-    wx.getUserProfile({
-      desc: '用于完善会员资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
-      success: (data) => {
-        console.log(data.userInfo)
-      }
-    });
+    wx.navigateTo({
+      url: '/pages/collect/index',
+    })
   },
   getUser() {
     wx.showToast({
       title: '该模块开发中....',
       icon: 'success',
+      duration: 2000
+    })
+  },
+  getYijianUser() {
+    wx.showToast({
+      title: '请在公众号反馈',
+      icon: 'error',
+      duration: 2000
+    })
+  },
+  getGuanUser() {
+    wx.showToast({
+      title: 'iT 毕业设计',
+      icon: 'loading',
       duration: 2000
     })
   },
@@ -31,6 +43,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    app.wxRequest('GET', "/getMsgCode", {}, (res) => {
+      console.log(res);
+
+    }, (err) => {
+    })
+
   },
 
   /**

@@ -65,7 +65,7 @@ Page({
     page: 1,
     size: 5,
     timer: null,
-    backTopValue:false,
+    backTopValue: false,
   },
 
   switchTap(e) { //更换资讯大类
@@ -180,12 +180,12 @@ Page({
       backTopValue
     })
   },
-//返回顶部
-backTop(){
-  wx.pageScrollTo({
-    scrollTop: 0,
-  })
-},
+  //返回顶部
+  backTop() {
+    wx.pageScrollTo({
+      scrollTop: 0,
+    })
+  },
   //获取到输入内容
   bindKeyInput(e) {
     clearTimeout(this.data.timer)

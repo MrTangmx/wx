@@ -14,3 +14,4 @@
 </view>
 
 <answersList answersList='{{answersList}}'></answersList>
+<i-top backTopValue="{{backTopValue}}" bind:backTop="backTop"></i-top>

@@ -18,7 +18,15 @@ module.exports = app => {
   router.get('/getDeilePage', controller.product.getDeilePage); 
   router.get('/getAnswers', controller.deile.getAnswers); 
   router.get('/getAnswersItem', controller.deile.getAnswersItem); 
+  router.get('/login', controller.user.login); 
+  router.post('/releaseData', controller.product.releaseData);
+  router.post('/addComments', controller.product.addComments);
+  router.post('/writeAnswer', controller.product.writeAnswer);
+  router.post('/writeAnswerPro', controller.product.writeAnswerPro);
+  router.post('/bindCollect', controller.product.bindCollect);
+  router.get('/getCollect', controller.user.getCollect); 
 
+  
   
 
 

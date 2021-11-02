@@ -22,7 +22,8 @@ Page({
     detailImg: [],
     //产品列表
     list: [],
-    dataObj: {},
+    productList: {},
+    pro_id: null
 
   },
   //预览图片
@@ -44,6 +45,9 @@ Page({
   * 生命周期函数--监听页面加载
   */
   onLoad: function (options) {
+    this.setData({
+      pro_id: options.id
+    })
     // 查询产品库
     app.wxRequest('GET', "/getDeilePage", { id: options.id }, (res) => {
       this.setData({
@@ -51,6 +55,35 @@ Page({
       })
     })
     this.getList()
+  }, writeAnswer(e) {
+    console.log(e.currentTarget.dataset.pro_id);
+    let data = {
+      pro_id: e.currentTarget.dataset.pro_id,
+      content_prodict: null,
+      user_id: wx.getStorageSync('user_id'),
+
+    }
+    wx.showModal({
+      title: '提示',
+      editable: true,
+      placeholderText: '输入评论内容',
+      success(res) {
+        console.log(res);
+        if (res.confirm) {
+          data.content_prodict = res.content
+          console.log(data);
+          app.wxRequest('POST', "/writeAnswerPro", data, (res) => {
+            
+            wx.navigateTo({
+              url: '/pages/productdetails/index?id=' + e.currentTarget.dataset.pro_id,
+            })
+          }, (err) => {
+          })
+        } else if (res.cancel) {
+        }
+      }
+    })
+
   },
   getList(page, size, type) {
     app.wxRequest('GET', "/list", { page, size, type }, (res) => {

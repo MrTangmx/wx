@@ -108,7 +108,7 @@ image {
 }
 
 .critic_content {
-  padding: 0 0 0 60rpx;
+  padding: 0 0 15rpx 60rpx;
   font-size: 30rpx
 }
 

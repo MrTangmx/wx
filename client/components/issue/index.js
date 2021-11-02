@@ -16,36 +16,75 @@ Component({
   data: {
     isText: true,
     showCritic: false,
-    centre: 0,
+    centre: -1,
+    current: -1,
+    criticList: []
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
-    showTextAll() {
+    showTextAll(e) {
+      if (e.currentTarget.dataset.index == this.data.current) {
+        this.setData({
+          current: -1
+        })
+        return
+      }
       this.setData({
-        isText: !this.data.isText
+        current: e.currentTarget.dataset.index
       })
     },
     showCritic(e) {
-      console.log(e.currentTarget.dataset.id);
-      this.setData({
-        centre: e.currentTarget.dataset.id
-      })
-      if (!this.data.showCritic) {
-        app.wxRequest('GET', "/getAnswersItem", { id: e.currentTarget.dataset.id }, (res) => {
-
-        }, (err) => {
+      if (e.currentTarget.dataset.index == this.data.centre) {
+        this.setData({
+          centre: -1
         })
+        return
       }
-
-      // console.log(e.currentTarget.dataset);
       this.setData({
-        showCritic: !this.data.showCritic
+        centre: e.currentTarget.dataset.index
       })
+      app.wxRequest('GET', "/getAnswersItem", { id: e.currentTarget.dataset.id }, (res) => {
+        this.setData({
+          criticList: res
+        })
+      }, (err) => {
+      })
+    },
+    writeAnswer(e) {
+      let data = {
+        answers_id: e.currentTarget.dataset.answers_id,
+        answers_critic_content: null,
+        user_id: wx.getStorageSync('user_id'),
+
+      }
+      wx.showModal({
+        title: '提示',
+        editable: true,
+        placeholderText: '输入评论内容',
+        success(res) {
+          if (res.confirm) {
+            data.answers_critic_content = res.content
+            app.wxRequest('POST', "/writeAnswer", data, (res) => {
+              wx.showToast({
+                title: '成功!',
+                icon: 'success',
+                duration: 2000
+              })
+            }, (err) => {
+            })
+          } else if (res.cancel) {
+
+          }
+        }
+      })
+      
     }
   },
   onLoad: function (options) {
-  }
+  },
+  //写回答
+
 })

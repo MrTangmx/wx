@@ -8,10 +8,10 @@
     </view>
   </view>
   <view class="title">
-    <input bindinput="bindKeyInput" type="text" placeholder="请添加标题" />
+    <input bindinput="bindKeyInput" value="{{inputValue}}" type="text" placeholder="请添加标题" />
   </view>
   <view class="conten">
-    <textarea bindinput="bindTextInput" bindblur="bindTextAreaBlur" class="conten" auto-height
+    <textarea bindinput="bindTextInput" value="{{valueText}}" class=" conten" auto-height
       placeholder="请添加发布内容相关描述"></textarea>
   </view>
   <view bindtap="release" class="subli_btn">发布</view>

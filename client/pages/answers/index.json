@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "answersList": "/components/issue/index"
+    "answersList": "/components/issue/index",
+    "i-top": "/components/backTop/index"
   },
   "navigationBarTitleText": "问答"
 }

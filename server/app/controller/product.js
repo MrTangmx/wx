@@ -19,6 +19,42 @@ class ProductController extends Controller{
     const result = await ctx.service.product.getDeilePage(id.id)
     ctx.body = result
   }
+  async releaseData(){
+    const { ctx } = this;
+    const data = ctx.request.body;
+    const result = await ctx.service.product.releaseData(data)
+    ctx.body = result
+  }
+  async addComments(){
+    const { ctx } = this;
+    const data = ctx.request.body;
+    const result = await ctx.service.product.addComments(data)
+    ctx.body = result
+  }
+  async writeAnswer(){
+    const { ctx } = this;
+    const data = ctx.request.body;
+    const result = await ctx.service.product.writeAnswer(data)
+    ctx.body = result
+  }
+  async writeAnswerPro(){
+    const { ctx } = this;
+    const data = ctx.request.body;
+    const result = await ctx.service.product.writeAnswerPro(data)
+    ctx.body = result
+  }
+
+  async bindCollect(){
+    const { ctx } = this;
+    const data = ctx.request.body;
+    const result = await ctx.service.product.bindCollect(data)
+    ctx.body = result
+  }
+  
+  
+  
+  
+  
   
 }
 

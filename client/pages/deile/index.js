@@ -10,7 +10,8 @@ Page({
     commentInfo: '', //评论内容
     id: '',
     list: [],
-    detail: {}
+    detail: {},
+    article_id: null,
   },
 
   /**
@@ -19,7 +20,9 @@ Page({
   onLoad: function (options) {
     this.getList()
     this.getDeile(options.id)
-
+    this.setData({
+      article_id: options.id
+    })
   },
 
   /**
@@ -110,9 +113,7 @@ Page({
   },
   // 评论输入框失去焦点
   changeState() {
-    this.setData({
-      showInput: true
-    })
+
   },
   // 获取评论类容
   bindKeyInput(e) {
@@ -122,37 +123,37 @@ Page({
   },
   // 发送评论
   sendInfo() {
-
-
-    try {
-      let nickName = wx.getStorageSync('nickName')
-      if (nickName) {
-        wx.showToast({
-          title: this.data.commentInfo + nickName,
-          icon: 'success',
-          duration: 2000
-        })
-      } else {
-        wx.getUserProfile({
-          desc: '用于完善会员资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
-          success: (data) => {
-            console.log(123456789);
-            wx.setStorageSync('nickName', data.userInfo.nickName)
-            wx.setStorageSync('avatarUrl', data.userInfo.avatarUrl)
-            wx.showToast({
-              title: this.data.commentInfo + wx.getStorageSync('nickName'),
-              icon: 'success',
-              duration: 2000
-            })
-          }
-        });
-      }
-
-
-    } catch (e) {
-
+    let that = this
+    let js_code = wx.getStorageSync('js_code');
+    let user_id = wx.getStorageSync('user_id');
+    if (!user_id) {
+      app.isUser(js_code)
     }
-
-
+    app.getWxUser();
+    app.wxRequest('POST', "/addComments", { user_id, article_id: this.data.article_id, content: this.data.commentInfo, nickName: wx.getStorageSync('nickName'), avatarUrl: wx.getStorageSync('avatarUrl') }, (res) => {
+      this.setData({
+        showInput: true
+      })
+      wx.showToast({
+        title: res.msg,
+        icon: 'success',
+        duration: 2000
+      })
+      wx.navigateTo({
+        url: '/pages/deile/index?id=' + this.data.article_id,
+      })
+    }, (err) => {
+    })
+  },
+  bindCollect() {
+    app.wxRequest('POST', "/bindCollect", { user_id: wx.getStorageSync('user_id'), article_id: this.data.article_id, }, (res) => {
+      console.log(res);
+      wx.showToast({
+        title: '收藏成功!',
+        icon: 'success',
+        duration: 2000
+      })
+    }, (err) => {
+    })
   }
 })

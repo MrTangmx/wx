@@ -20,7 +20,7 @@ class DeileController extends Controller{
     const result = await ctx.service.deile.getAnswersItem(data.id)
     ctx.body = result
   }
-  getAnswersItem
+  
   
 }
 

@@ -6,13 +6,27 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    list: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    app.wxRequest('get', "/getCollect", { user_id: wx.getStorageSync('user_id') }, (res) => {
+      let arr = res
+      arr.forEach((item, i) => {
+        let iarr = item.image.split(',')
+        iarr.length > 3 ? iarr.pop() : false
+        arr[i].image = iarr
+        arr[i].imageNum = iarr.length
+      })
+      this.setData({
+        list: this.data.list.concat(arr)
+      })
+    }, (err) => {
+    })
+
 
   },
 
@@ -22,7 +36,11 @@ Page({
   onReady: function () {
 
   },
-
+  jumpPage(e) {
+    wx.navigateTo({
+      url: '/pages/deile/index?id=' + e.currentTarget.dataset.id,
+    })
+  },
   /**
    * 生命周期函数--监听页面显示
    */
@@ -64,10 +82,5 @@ Page({
   onShareAppMessage: function () {
 
   },
-  skipDetail(e) {
-    console.log(e.currentTarget.dataset.id);
-    wx.navigateTo({
-      url: '/pages/productdetails/index?id=' + e.currentTarget.dataset.id,
-    })
-  },
+
 })

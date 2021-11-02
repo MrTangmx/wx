@@ -22,7 +22,12 @@ class DeileService extends Service {
   async getAnswersItem(id) {
     let sqlC = `SELECT AC.answers_critic_content,AC.setTime,U.avatarUrl,U.nickName,U.named FROM wx_answers_critic AC JOIN wx_user U  ON AC.user_id = U.user_id WHERE AC.answers_id =${id};`;
     const result = await this.app.mysql.query(sqlC);
-    return result;
+
+    
+    return {
+      data:result,
+      total: [...result].length
+    };
   }
 }
 module.exports = DeileService;

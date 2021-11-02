@@ -1,22 +1,34 @@
-'use strict';
+"use strict";
 
-const Controller = require('egg').Controller;
+
+const Controller = require("egg").Controller;
 
 class UserController extends Controller {
-  async index() {
+  async login() {
     const { ctx } = this;
-    ctx.body = 'hi, egg';
+    const res = ctx.query;
+    const result = await ctx.service.user.getUserInfo(res)
+    ctx.body = result
   }
-  async updatePersonal(){
-    const {ctx} = this;
-    const data = ctx.request.body
-    ctx.body = data
+  async getCollect() {
+    const { ctx } = this;
+    const data = ctx.query;
+    const result = await ctx.service.user.getCollect(data.user_id)
+    ctx.body = result;
   }
-  async getMsgCode(){
-    const {ctx} = this;
+  
+
+  async updatePersonal() {
+    const { ctx } = this;
+    const data = ctx.request.body;
+    ctx.body = data;
+  }
+  async getMsgCode() {
+    const { ctx } = this;
     //get请求拿到id
     const test = ctx.query;
-    ctx.body = test;
+    console.log(ctx.session);
+    ctx.body = {id:ctx.session.uid}
   }
 }
 
