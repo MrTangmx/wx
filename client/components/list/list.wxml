@@ -1,7 +1,7 @@
 <!--components/list.wxml-->
 <template name="list">
   <block wx:for="{{list}}" wx:key='index'>
-    <view bindtap="jumpPage" data-id="{{item.article_id}}">
+    <view class="toolBox" mut-bind:tap="jumpPage" data-id="{{item.article_id}}" bindtouchstart="touchstart" bindtouchmove="touchmove">
       <!-- 测评 -->
       <view wx:if="{{item.imageNum == 3}}" class="list_box">
         <view class="fontOmit" style="font-size:30rpx;">{{item.title}}</view>
@@ -12,6 +12,7 @@
           <text style="color:#0A89FA">测评</text>
           <text style="margin: 0 0 0 20rpx;color:#a0a0a0;">{{item.ctime}}</text>
         </view>
+        <view class="tools {{item.sign ? 'location_moving' : ''}}"  wx:if="{{sign}}" mut-bind:tap="delData">取消收藏</view>
       </view>
 
       <!-- 图赏 -->
@@ -28,6 +29,7 @@
           <text style="color:#0A89FA">图赏</text>
           <text style="margin: 0 0 0 20rpx; color:#a0a0a0;">{{item.ctime}}</text>
         </view>
+        <view class="tools {{item.sign ? 'location_moving' : ''}}"  wx:if="{{sign}}" mut-bind:tap="delData">取消收藏</view>
       </view>
       <!-- 沙发 一张图 -->
       <view wx:if="{{item.imageNum == 1}}" class="list_one_box">
@@ -41,7 +43,15 @@
         <view class="list_box_right">
           <image class="img_one_item" src="{{item.image[0]}}"></image>
         </view>
+        <view class="tools {{item.sign ? 'location_moving' : ''}}"  wx:if="{{sign}}" mut-bind:tap="delData">取消收藏</view>
       </view>
+
+ 
     </view>
+
   </block>
+</template>
+     <!-- 工具栏 -->
+<template name="delete-box">
+  
 </template>

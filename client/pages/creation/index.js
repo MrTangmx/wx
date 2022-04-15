@@ -56,7 +56,7 @@ Page({
   release() {
     if (this.data.imgArr.length == 0) {
       wx.showToast({
-        title: '不能发布空内容',
+        title: '发布内容存在未输入项！',
         icon: 'error',
         duration: 2000
       })
@@ -81,22 +81,49 @@ Page({
       app.isUser(js_code)
     }
     app.getWxUser();
-    app.wxRequest('POST', "/releaseData", data, (res) => {
-      wx.showToast({
-        title: res.msg,
-        icon: 'success',
-        duration: 2000
-      })
-      this.setData({
-        imgArr: [],
-        valueText: '',
-        inputValue: ''
-      })
 
-    }, (err) => {
+    wx.showModal({
+      title: '提示',
+      content: '请选择想要发布的模块',
+      cancelText:'问答区域',
+      cancelColor:'#07C160',
+      confirmText:'测评区域',
+      confirmColor:'#3390FF',
+      success (res) {
+        if (res.confirm) {
+          app.wxRequest('POST', "/releaseData", data, (res) => {
+            wx.showToast({
+              title: res.msg,
+              icon: 'success',
+              duration: 2000
+            })
+            this.setData({
+              imgArr: [],
+              valueText: '',
+              inputValue: ''
+            })
+      
+          }, (err) => {
+          })
+        } else if (res.cancel) {
+          app.wxRequest('POST', "/releaseReply", data, (res) => {
+            wx.showToast({
+              title: res.msg,
+              icon: 'success',
+              duration: 2000
+            })
+            this.setData({
+              imgArr: [],
+              valueText: '',
+              inputValue: ''
+            })
+      
+          }, (err) => {
+          })
+        }
+      }
     })
-
-
+    
   },
   bindKeyInput(e) {
     console.log(e);

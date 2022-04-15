@@ -1,26 +1,28 @@
 <!--pages/product/index.wxml-->
-<view class="product">
-  <scroll-view scroll-y='true' class="left_list" bindtap="changeClass">
-    <view wx:for="{{classify}}" class="left_item {{index == current?'white':''}}" data-index="{{index }}">{{item}}
-    </view>
-  </scroll-view>
+<view style="height: 100vh;">
+  <seach describe="{{describe}}" bind:seachBind='seachBind'></seach>
+  <view class="product">
+    <scroll-view scroll-y='true' class="left_list" bindtap="changeClass">
+      <view wx:for="{{classify}}" class="left_item {{index == current?'white':''}}" data-index="{{index }}">{{item}}
+      </view>
+    </scroll-view>
 
-  <scroll-view scroll-y='true'>
-    <view class="right_list">
-      <view class="right_item">
-        <view wx:for="{{detaileArr}}" wx:key="{{index}}">
-          <view class="right_title">{{item.name}}</view>
-          <view class="item_box">
-            <view class="item" wx:for="{{item.data}}" wx:key="{{index}}" data-id="{{item.classify}}"
-              bindtap="touchSkip">
-              <view class="item_img">
-                <image src="{{item.nameurl}}"></image>
+    <scroll-view scroll-y='true'>
+      <view class="right_list">
+        <view class="right_item">
+          <view wx:for="{{detaileArr}}" wx:key="{{item.article_id}}">
+            <view class="right_title">{{item.name}}</view>
+            <view class="item_box">
+              <view class="item" wx:for="{{item.data}}" wx:key="{{index}}" data-id="{{item.classify}}" bindtap="touchSkip">
+                <view class="item_img">
+                  <image src="{{item.nameurl}}"></image>
+                </view>
+                <view style="text-align: center;font-size:24rpx">{{item.nameNick}}</view>
               </view>
-              <view style="text-align: center;font-size:24rpx">{{item.nameNick}}</view>
             </view>
           </view>
         </view>
       </view>
-    </view>
-  </scroll-view>
+    </scroll-view>
+  </view>
 </view>

@@ -1,7 +1,7 @@
 /* pages/product/ind.ex.wxss. */
 .product {
   display: flex;
-  height: 100vh;
+  height: calc(100vh - 60rpx)
 }
 
 .left_list {

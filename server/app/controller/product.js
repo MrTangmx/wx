@@ -25,6 +25,12 @@ class ProductController extends Controller{
     const result = await ctx.service.product.releaseData(data)
     ctx.body = result
   }
+  async releaseReply(){
+    const { ctx } = this;
+    const data = ctx.request.body;
+    const result = await ctx.service.product.releaseReply(data)
+    ctx.body = result
+  }
   async addComments(){
     const { ctx } = this;
     const data = ctx.request.body;

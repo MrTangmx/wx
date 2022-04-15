@@ -32,7 +32,8 @@
 <!-- 轮播 -->
 <customSwiper wx:if="{{showSwiper}}" imgData="{{swiper_img}}" stitle="{{stitle}}"></customSwiper>
 <!-- 副导航 -->
-<view wx:if="{{showNavIcon}}" class="navIcon">
+<!-- <view wx:if="{{showNavIcon}}" class="navIcon" > -->
+<view wx:if="{{false}}" class="navIcon" >
   <view class="navIcon_slf">
     <view class="navIcon_item navIcon_elf_base64 navIcon_picture1"></view>
     <text style="font-size:24rpx">查报价</text>
@@ -87,7 +88,7 @@
   <view class="icon_rdjx"></view>
   <view class="icon_content">
     <swiper autoplay='true' vertical='true' circular='true' style="height:36rpx">
-      <swiper-item class="hot_item" wx:for="{{hot}}">{{item}}</swiper-item>
+      <swiper-item class="hot_item" wx:for="{{hot}}" bindtap="skipHot" data-id="{{item.article_id}}">{{item.title}}</swiper-item>
     </swiper>
   </view>
 </view>
@@ -95,7 +96,7 @@
 <!-- 列表 -->
 <view>
   <import src="/components/list/list.wxml" />
-  <template is="list" data="{{list:list}}"></template>
+  <template is="list" data="{{list:list,sign:false}}"></template>
 </view>
 
 <i-top backTopValue="{{backTopValue}}" bind:backTop="backTop"></i-top>

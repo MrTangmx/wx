@@ -1,0 +1,48 @@
+<view class="box" bindtap="showTabTap">
+    <view class="boxFH {{isShowClass?'borderB':''}}" data-code="1">我的发布</view>
+    <view class="boxFH borderL {{!isShowClass?'borderB':''}}" data-code="0">我的回答</view>
+</view>
+<view style="height: 80rpx;"></view>
+<view wx:if="{{isShowClass}}">
+    <view wx:for="{{answersList}}">
+        <view data-id="{{item.answers_id}}" class="box_item" bindtouchstart="touchstart" bindtouchmove="touchmove">
+            <view class="title">{{item.title}}</view>
+            <view class="user">
+                <view class="user_img">
+                    <image src="{{item.avatarUrl}}">
+                    </image>
+                </view>
+                <view class="user_name">{{item.nickName}}</view>
+                <view style="font-size: 24rpx;color: #aaa;">{{item.answers_time}}</view>
+            </view>
+            <view style="position: relative;">
+                <view class="content  {{index != current?'text':''}}">
+                    {{item.content}}
+                </view>
+                <text class="iconfont {{index != current?'icon-xiangxia':'icon-xiangshang2'}} icon_box" catchtap="showTextAll" data-index="{{index}}"></text>
+            </view>
+            <view class="tools {{item.sign ? 'location_moving' : ''}}" wx:if="{{item.sign}}" mut-bind:tap="delData">删除</view>
+            <view style="width: 100%;height:16rpx;background-color: #ECECEC;"></view>
+        </view>
+    </view>
+</view>
+<view wx:else>
+    <view wx:for="{{replyData}}" data-id="{{item.answers_critic_id}}" style="padding:10rpx;position: relative;" bindtouchstart="touchstart" bindtouchmove="touchmove">
+        <view class="text-one">{{item.title}}</view>
+        <view>
+            <view class="critic_item">
+                <view class="user_img">
+                    <image src="{{item.avatarUrl}}">
+                    </image>
+                </view>
+                <view style="margin-left:20rpx;flex:1">{{item.nickName}}</view>
+                <view style="color:#999;font-size:24rpx">{{item.answers_time}}</view>
+            </view>
+        </view>
+        <view>{{item.answers_critic_content}}</view>
+        <view style="color:#999;font-size:24rpx;">评论时间：{{item.setTime}}</view>
+        <view class="tools {{item.sign ? 'location_moving' : ''}}" wx:if="{{item.sign}}" mut-bind:tap="delData">删除</view>
+        <view style="width: 100%;height:16rpx;background-color: #ECECEC;"></view>
+    </view>
+</view>
+<!-- 我发布的问题 -->

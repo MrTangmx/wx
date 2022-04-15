@@ -10,14 +10,11 @@
       </view>
       <view class="user_name">{{item.nickName}}</view>
       <view class="icon_zj">
-        <image wx:if="{{item.named==1}}"
-          src="https://icon.zol-img.com.cn/m/pages/ask/components/ask-list/images/export-tepin-65782efd38.png">
+        <image wx:if="{{item.named==1}}" src="https://icon.zol-img.com.cn/m/pages/ask/components/ask-list/images/export-tepin-65782efd38.png">
         </image>
-        <image wx:if="{{item.named==2}}"
-          src="https://icon.zol-img.com.cn/m/pages/ask/components/ask-list/images/export-bianji-3fce988a37.png">
+        <image wx:if="{{item.named==2}}" src="https://icon.zol-img.com.cn/m/pages/ask/components/ask-list/images/export-bianji-3fce988a37.png">
         </image>
-        <image wx:if="{{item.named==3}}"
-          src="https://icon.zol-img.com.cn/m/pages/ask/components/ask-list/images/export-jianxi-1232c7a147.png">
+        <image wx:if="{{item.named==3}}" src="https://icon.zol-img.com.cn/m/pages/ask/components/ask-list/images/export-jianxi-1232c7a147.png">
         </image>
       </view>
     </view>
@@ -25,19 +22,16 @@
       <view class="content  {{index != current?'text':''}}">
         {{item.content}}
       </view>
-      <text class="iconfont {{index != current?'icon-xiangxia':'icon-xiangshang2'}} icon_box" bindtap="showTextAll"
-        data-index="{{index}}"></text>
+      <text class="iconfont {{index != current?'icon-xiangxia':'icon-xiangshang2'}} icon_box" bindtap="showTextAll" data-index="{{index}}"></text>
     </view>
     <view class="tail">
       <view style="display:flex;">
         <view style="margin-right:20rpx">{{item.browseNum}} 浏览</view>
-        <view data-id="{{item.answers_id}}" data-index="{{index}}" class="answer" bindtap="showCritic">评论<text
-            style="font-size:24rpx" class="iconfont {{index == centre?'icon-xiangshang2':'icon-xiangxia'}}"></text>
+        <view data-id="{{item.answers_id}}" data-index="{{index}}" class="answer" bindtap="showCritic">评论<text style="font-size:24rpx" class="iconfont {{index == centre?'icon-xiangshang2':'icon-xiangxia'}}"></text>
         </view>
         <view>收藏</view>
       </view>
-      <view class="iconfont icon-bianjisekuai" bindtap="writeAnswer" data-answers_id="{{item.answers_id}}"
-        style="font-size:24rpx">写回答</view>
+      <view class="iconfont icon-bianjisekuai" bindtap="writeAnswer" data-answers_id="{{item.answers_id}}" style="font-size:24rpx">写回答</view>
     </view>
     <view wx:if="{{index === centre ? true:false}}" data-index="{{index}}" class="critic">
       <view>

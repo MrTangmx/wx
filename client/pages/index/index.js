@@ -223,14 +223,15 @@ Page({
   getSwiper(id) {
     // 获取轮播图
     app.wxRequest('GET', "/swiper", { type: id }, (res) => {
+      console.log(res);
       let arr = []
       res.forEach((item, i) => {
         arr.push({
           image: item.image,
           id: i,
+          A_id: item.article_id,
           title: item.title
         })
-
       })
       this.setData({
         swiper_img: arr
@@ -246,12 +247,18 @@ Page({
     app.wxRequest('GET', "/hotList", {}, (res) => {
       let hotList = []
       res.forEach((item) => {
-        hotList.push(item.title)
+        hotList.push(item)
       })
       this.setData({
         hot: hotList,
       })
     }, (err) => {
+    })
+  },
+  skipHot(e){
+    console.log(e.target.dataset.id);
+    wx.navigateTo({
+      url: '/pages/deile/index?id=' + e.target.dataset.id,
     })
   },
   getList(page, size, type) {
@@ -270,6 +277,7 @@ Page({
     })
   },
   getconnet(e) {
+    debugger
     if (e.target.dataset.id) {
       wx.navigateTo({
         url: '/pages/deile/index?id=' + e.target.dataset.id,

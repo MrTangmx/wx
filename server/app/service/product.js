@@ -1,3 +1,13 @@
+/*
+ * @Author: Mr Tang
+ * @Date: 2022-03-23 10:43:09
+ * @LastEditors: Mr Tang
+ * @LastEditTime: 2022-04-15 00:10:45
+ * @FilePath: \hmie:\wx-forum\server\app\service\product.js
+ * @Description: 
+ * 
+ * Copyright (c) 2022 Mr Tang
+ */
 const { Service } = require("egg");
 
 class ProductService extends Service {
@@ -19,6 +29,12 @@ class ProductService extends Service {
     return post;
   }
   async releaseData(data) {
+    let time = new Date().format("yyyy-MM-dd hh:mm:ss");
+    data.answers_time = time;
+    const result = await this.app.mysql.insert("wx_answers", data);
+    return result
+  }
+  async releaseReply(data) {
     let time = new Date().format("yyyy-MM-dd hh:mm:ss");
     data.ctime = time;
     const result = await this.app.mysql.insert("wx_article", data);

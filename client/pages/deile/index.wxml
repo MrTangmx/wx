@@ -7,7 +7,7 @@
     </view>
     <view class="content">
       <view class="nick_box">
-        <view class="fs12 nick_call">{{detail.name}}</view>
+        <view class="fs12 nick_call">{{detail.nickName}}</view>
         <view class="tag_root">{{detail.named==0?'原创':detail.named==1?'转发':'大神'}}</view>
       </view>
       <view class="fs12">{{detail.ctime}}</view>
@@ -18,8 +18,8 @@
   <view>
     <image wx:for="{{detail.image}}" src="{{item}}"></image>
   </view>
+  <view style="margin: 20px 0;">{{detail.content}}</view>
   <view style="background-color: #F5F5F5;width:100vw;height:20rpx"></view>
-
   <view class="reading">
     <view style="font-size:24rpx;margin-top:10rpx;color:#999">相关阅读</view>
     <view class="reading_content">

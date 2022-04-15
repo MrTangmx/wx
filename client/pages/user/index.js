@@ -14,10 +14,8 @@ Page({
     })
   },
   getUser() {
-    wx.showToast({
-      title: '该模块开发中....',
-      icon: 'success',
-      duration: 2000
+    wx.navigateTo({
+      url: '/pages/myAnswer/index',
     })
   },
   getYijianUser() {

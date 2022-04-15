@@ -62,3 +62,46 @@
   width: 100%;
   height: 90%;
 }
+
+/* 工具栏 */
+.toolBox {
+  position: relative;
+}
+
+.img_ceping_box,
+.list_box,
+.list_one_box {
+  position: relative;
+}
+
+.tools {
+  /* width: 220rpx;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #6fc154c2;
+  font-size: 50rpx;
+  color: #fff; */
+  background-color: #6fc154c2;
+  width: 220rpx;
+  height: 100%;
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  -webkit-transform: translateX(220rpx);
+  transform: translateX(220rpx);
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+.location_moving{
+  transform: translateX(0) !important;
+}

@@ -1,0 +1,17 @@
+ <!-- 搜索 -->
+ <view class="seach">
+      <view wx:if="{{showInput}}" bindtap="changeInput" class="seach_box">
+        <text class="iconfont icon-sousuo" style="color:#858585;margin-right: 20rpx;"></text>
+        <text style="color:#767676">{{placeholder}}</text>
+      </view>
+      <view wx:else class="seach_box">
+        <input auto-focus bindinput="bindKeyInput" bindblur='changeState' placeholder="{{placeholder}}" />
+        <view wx:if="{{showSearchList}}" class="input_list" bindtap="getconnet">
+          <scroll-view scroll-y="true" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll"
+            scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+            <view class="input_list_item" wx:for="{{searchList}}" wx:key='*this' data-id="{{item.article_id}}"><text
+                style="margin-right: 20rpx;" class="iconfont icon-sousuo"></text>{{item.title}}</view>
+          </scroll-view>
+        </view>
+      </view>
+    </view>

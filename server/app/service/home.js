@@ -1,3 +1,13 @@
+/*
+ * @Author: Mr Tang
+ * @Date: 2022-03-23 10:43:09
+ * @LastEditors: Mr Tang
+ * @LastEditTime: 2022-04-15 00:07:09
+ * @FilePath: \hmie:\wx-forum\server\app\service\home.js
+ * @Description: 
+ * 
+ * Copyright (c) 2022 Mr Tang
+ */
 "use strict";
 
 const Service = require("egg").Service;
@@ -53,6 +63,7 @@ class HomeService extends Service {
     for (let i = 0; i < 5; i++) {
       var id = Math.round(Math.random() * (185 - 425) + 425);
       const post = await this.app.mysql.get("wx_article", { article_id: id });
+      console.log(post);
       hotArr.push(post);
     }
 
@@ -63,6 +74,12 @@ class HomeService extends Service {
     const post = await this.app.mysql.query(sql);
     return post;
   }
+  async searchProduct(data) {
+    let sql = `select * from wx_product_item where name  like '%${data.data}%'`;
+    const post = await this.app.mysql.query(sql);
+    return post;
+  }
+  
 
   async indexList(id) {
     const results = await this.app.mysql.select("wx_article", {

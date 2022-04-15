@@ -58,8 +58,14 @@ Component({
           })
         }
       }
-
     },
+    skipDetil(e){
+      debugger
+      console.log(e);
+      wx.navigateTo({
+        url: '/pages/deile/index?id=' + e.target.dataset.a_id,
+      })
+    }
 
   },
   lifetimes: {

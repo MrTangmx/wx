@@ -9,6 +9,7 @@ Page({
     classify: ['手机', '笔记本', '相机', '数码', 'DIY硬件', '家电', '办公投影', '游戏机', '网络', '安防', '汽车用品', '智能生活'],
     current: 0,
     detaileArr: [],
+    describe:'手机'
   },
 
   /**
@@ -86,6 +87,12 @@ Page({
     console.log(e.currentTarget.dataset.id);
     wx.navigateTo({
       url: '/pages/ranking/index?id=' + e.currentTarget.dataset.id,
+    })
+  },
+  // 搜索事件
+  seachBind(data){
+    wx.navigateTo({
+      url: '/pages/productdetails/index?id=' + data.detail,
     })
   },
 })
