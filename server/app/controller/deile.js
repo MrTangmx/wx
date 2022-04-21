@@ -1,13 +1,3 @@
-/*
- * @Author: Mr Tang
- * @Date: 2022-03-23 10:43:09
- * @LastEditors: Mr Tang
- * @LastEditTime: 2022-04-14 23:50:44
- * @FilePath: \hmie:\wx-forum\server\app\controller\deile.js
- * @Description: 
- * 
- * Copyright (c) 2022 Mr Tang
- */
 'use strict'
 const { Controller } = require("egg")
 

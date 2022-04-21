@@ -62,10 +62,10 @@ Page({
     showHotExquisite: true, //热点精选
     showInput: true, //搜索
     showSearchList: false, //搜索列表 
-    page: 1,
-    size: 5,
-    timer: null,
-    backTopValue: false,
+    page: 1,//定义页
+    size: 5,//定义条数
+    timer: null,// 定义定时器
+    backTopValue: false,//定义返回顶部可用
   },
 
   switchTap(e) { //更换资讯大类
@@ -92,6 +92,7 @@ Page({
 
     this.triggerEvent(id); //点击了导航,通知父组件重新渲染列表数据
   },
+  // 切换时
   triggerEvent(id) {
     switch (id) {
       case 1:
@@ -255,12 +256,14 @@ Page({
     }, (err) => {
     })
   },
+  // 热点跳转
   skipHot(e){
     console.log(e.target.dataset.id);
     wx.navigateTo({
       url: '/pages/deile/index?id=' + e.target.dataset.id,
     })
   },
+  // 获取列表数据
   getList(page, size, type) {
     app.wxRequest('GET', "/list", { page, size, type }, (res) => {
       let arr = res
@@ -276,6 +279,7 @@ Page({
     }, (err) => {
     })
   },
+  // 获取详细信息
   getconnet(e) {
     debugger
     if (e.target.dataset.id) {
@@ -284,6 +288,7 @@ Page({
       })
     }
   },
+  // 触底加载
   onReachBottom: function () {
     console.log(125555);
     app.wxRequest('GET', "/list", { page: this.data.page, size: this.data.size }, (res) => {

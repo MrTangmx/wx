@@ -1,13 +1,3 @@
-/*
- * @Author: Mr Tang
- * @Date: 2022-03-23 10:43:09
- * @LastEditors: Mr Tang
- * @LastEditTime: 2022-04-12 23:07:43
- * @FilePath: \hmie:\wx-forum\server\app\controller\user.js
- * @Description: 
- * 
- * Copyright (c) 2022 Mr Tang
- */
 "use strict";
 
 

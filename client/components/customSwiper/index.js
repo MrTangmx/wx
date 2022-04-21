@@ -42,14 +42,15 @@ Component({
    * 组件的初始数据
    */
   data: {
-    swiper_title: '',
-    current: 0
+    swiper_title: '',// 定义轮播图标题
+    current: 0 // 定义当前的轮播条数
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
+    // 定义手指触摸事件
     onSlideChangeEnd(e) {
       for (const key in this.data.imgData) {
         if (e.detail.current == this.data.imgData[key].id) {
@@ -59,6 +60,7 @@ Component({
         }
       }
     },
+    // 定义跳转的方法（id）
     skipDetil(e){
       debugger
       console.log(e);

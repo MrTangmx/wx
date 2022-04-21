@@ -12,14 +12,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    isShowClass: true,
-    page: 1,
-    size: 5,
+    isShowClass: true,// 是否样式可用
+    page: 1,//定义页
+    size: 5,//定义条数
     answersList: [],// 源数据
-    copyAnswersList: [], // copy数据
-    replyData: [],
-    copyReplyData: [],
-    touchmoveCount: 0
+    copyAnswersList: [], 
+    replyData: [],//评论数据
+    copyReplyData: [],// copy数据
+    touchmoveCount: 0// 触摸移除数据
   },
 
   /**

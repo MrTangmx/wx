@@ -1,13 +1,3 @@
-/*
- * @Author: Mr Tang
- * @Date: 2022-03-23 10:43:09
- * @LastEditors: Mr Tang
- * @LastEditTime: 2022-04-14 23:55:04
- * @FilePath: \hmie:\wx-forum\server\app\service\deile.js
- * @Description: 
- * 
- * Copyright (c) 2022 Mr Tang
- */
 "use strict";
 const { Service } = require("egg");
 
@@ -51,7 +41,6 @@ class DeileService extends Service {
   }
   async getMyReply(data) {
     const { ctx } = this;
-    console.log(data);
     let sql = `
             SELECT
             a.content,

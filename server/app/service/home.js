@@ -2,7 +2,7 @@
  * @Author: Mr Tang
  * @Date: 2022-03-23 10:43:09
  * @LastEditors: Mr Tang
- * @LastEditTime: 2022-04-15 00:07:09
+ * @LastEditTime: 2022-04-21 09:15:03
  * @FilePath: \hmie:\wx-forum\server\app\service\home.js
  * @Description: 
  * 
@@ -11,12 +11,13 @@
 "use strict";
 
 const Service = require("egg").Service;
-
+// 业务层 当前接口需要处理的业务罗逻辑
 class HomeService extends Service {
   async List(data) {
-    const { app, ctx } = this;
-    let list = [];
-    let typeProduct = data.type * 1;
+
+    const { app, ctx } = this;// 解构当前全局对象，获取app及ctx对象
+    let list = [];// 定义临时对象，保存查询后的值
+    let typeProduct = data.type * 1; // 转换数据格式（...）
     if (
       typeProduct != 3 &&
       typeProduct != 4 &&
@@ -26,10 +27,11 @@ class HomeService extends Service {
       typeProduct = null;
     }
     if (!typeProduct) {
+      // 随机获取五条数据
       for (let i = 0; i < 5; i++) {
-        var id = Math.round(Math.random() * 590);
-        const post = await this.app.mysql.get("wx_article", { article_id: id });
-        list.push(post);
+        var id = Math.round(Math.random() * 590);//定义随机数
+        const post = await this.app.mysql.get("wx_article", { article_id: id });//根据随机数查询
+        list.push(post);// 添加
       }
       return list;
     } else {

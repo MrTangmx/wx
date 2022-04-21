@@ -1,15 +1,5 @@
-/*
- * @Author: Mr Tang
- * @Date: 2022-03-23 10:43:09
- * @LastEditors: Mr Tang
- * @LastEditTime: 2022-04-15 00:10:45
- * @FilePath: \hmie:\wx-forum\server\app\service\product.js
- * @Description: 
- * 
- * Copyright (c) 2022 Mr Tang
- */
 const { Service } = require("egg");
-
+// 持久层交互（与数据库交互，进行数据增删改查），
 class ProductService extends Service {
   async getProduct(id) {
     let sql = `SELECT * FROM wx_product where classify=${id}`;
@@ -42,7 +32,7 @@ class ProductService extends Service {
   }
   async addComments(data) {
     let sql = `INSERT INTO wx_forum . wx_critic (user_id, article_id, content) VALUES (${data.user_id}, '${data.article_id}', '${data.content}')`;
-    const det = await this.app.mysql.query(sql);
+    const det = await this.app.mysql.query(sql); //
     const row = {
       avatarUrl: data.avatarUrl,
       nickName: data.nickName,

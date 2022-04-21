@@ -1,18 +1,18 @@
 // pages/user/ss/index.js
-const app = getApp();
-var startX
-var startY
-var indexId
+const app = getApp();//引入全局配置文件
+var startX //定义鼠标偏移的x轴位置
+var startY //定义鼠标偏移的Y轴位置
+var indexId //定义当前(item)项目的id
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    startX: 0,
-    startY: 0,
-    btnWidth: 0,
-    positionStyle: null,
+    startX: 0,//定义偏移量X
+    startY: 0, //定义偏移量Y
+    btnWidth: 0, // 定义触摸位移宽度
+    positionStyle: null, //定义定位
     list: [],// 源数据
     copyList: [],// copy数据
     // isShowId: 278,
@@ -31,6 +31,7 @@ Page({
   onReady: function () {
 
   },
+  // 获取数据
   getDataC() {
     debugger
     app.wxRequest('get', "/getCollect", { user_id: wx.getStorageSync('user_id') }, (res) => {
@@ -51,6 +52,7 @@ Page({
     }, (err) => {
     })
   },
+  // 跳转
   jumpPage(e) {
     wx.navigateTo({
       url: '/pages/deile/index?id=' + e.currentTarget.dataset.id,

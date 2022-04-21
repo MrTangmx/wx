@@ -8,10 +8,10 @@ Page({
   data: {
     showInput: true, //显示输入框
     commentInfo: '', //评论内容
-    id: '',
-    list: [],
-    detail: {},
-    article_id: null,
+    id: '',//保存临时id
+    list: [],//保存列表数据
+    detail: {},//保存当前列表
+    article_id: null,//保存文章id
   },
 
   /**
@@ -31,6 +31,7 @@ Page({
   onReady: function () {
 
   },
+  // 获取列表数据
   getList(page, size, type) {
     app.wxRequest('GET', "/list", { page, size, type }, (res) => {
       let arr = res
@@ -46,6 +47,7 @@ Page({
     }, (err) => {
     })
   },
+  // 获取单条数据
   getDeile(id) {
     app.wxRequest('GET', "/getDeile", { id }, (res) => {
       let arr = { ...res }

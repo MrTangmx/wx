@@ -6,13 +6,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-    showInput: true, //搜索
-    showSearchList: false, //搜索列表 
+    showInput: true, //搜索是否可输入
+    showSearchList: false, //搜索列表 是否显示
     searchList: ['点击完成按钮时触发，event.detail = { value }', '点击完成按钮时触发，event.detail = { value }', '点击完成按钮时触发，event.detail = { value }'],
-    answersList: [],
-    page: 1,
-    size: 5,
-    backTopValue: false,
+    answersList: [],// 问答的列表数据保存
+    page: 1,// 定义页
+    size: 5,//定义条
+    backTopValue: false,// 返回顶部是否可用
 
   },
   // 监听滚动条坐标
@@ -24,6 +24,7 @@ Page({
       backTopValue
     })
   },
+  // 返回顶部方法
   backTop() {
     wx.pageScrollTo({
       scrollTop: 0,
@@ -63,12 +64,14 @@ Page({
     }, (err) => {
     })
   },
+  // 打开当前页时触发事件
   onLoad: function (options) {
     this.getAnswers(this.data.page, this.data.size)
   },
   onReachBottom: function () {
 
   },
+  // 触底事件
   onReachBottom: function () {
     this.setData({
       page: this.data.page += 1

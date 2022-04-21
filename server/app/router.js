@@ -1,13 +1,3 @@
-/*
- * @Author: Mr Tang
- * @Date: 2022-03-23 10:43:09
- * @LastEditors: Mr Tang
- * @LastEditTime: 2022-04-15 00:06:42
- * @FilePath: \hmie:\wx-forum\server\app\router.js
- * @Description: 
- * 
- * Copyright (c) 2022 Mr Tang
- */
 'use strict';
 
 /**

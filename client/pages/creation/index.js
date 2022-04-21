@@ -1,11 +1,12 @@
 const app = getApp();
 Page({
   data: {
-    formats: {},
-    imgArr: [],
-    inputValue: "",
-    valueText: ''
+    formats: {},// 定义发布内容表单
+    imgArr: [],//定义上传图片列表
+    inputValue: "",// 定义标题内容接收变量
+    valueText: ''//定义文章内容接收
   },
+  // 上传图片的数量控制
   insertImage() {
     const that = this
     wx.chooseImage({
@@ -53,6 +54,7 @@ Page({
       },
     })
   },
+  // 发布上传事件
   release() {
     if (this.data.imgArr.length == 0) {
       wx.showToast({
@@ -125,12 +127,14 @@ Page({
     })
     
   },
+  // 输入时触发赋值操作
   bindKeyInput(e) {
     console.log(e);
     this.setData({
       inputValue: e.detail.value
     })
   },
+    // 输入时触发赋值操作
   bindTextInput(e) {
     this.setData({
       valueText: e.detail.value
