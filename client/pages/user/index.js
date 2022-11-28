@@ -13,6 +13,11 @@ Page({
       url: '/pages/collect/index',
     })
   },
+  getProduct() {
+    wx.navigateTo({
+      url: '/pages/product/index',
+    })
+  },
   getUser() {
     wx.navigateTo({
       url: '/pages/myAnswer/index',
@@ -27,7 +32,7 @@ Page({
   },
   getGuanUser() {
     wx.showToast({
-      title: 'iT 毕业设计',
+      title: 'ZEAL',
       icon: 'loading',
       duration: 2000
     })

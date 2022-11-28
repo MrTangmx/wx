@@ -99,12 +99,12 @@ Page({
               icon: 'success',
               duration: 2000
             })
-            this.setData({
+            that.setData({
               imgArr: [],
               valueText: '',
               inputValue: ''
             })
-      
+                       
           }, (err) => {
           })
         } else if (res.cancel) {
@@ -114,7 +114,7 @@ Page({
               icon: 'success',
               duration: 2000
             })
-            this.setData({
+            that.setData({
               imgArr: [],
               valueText: '',
               inputValue: ''
@@ -123,6 +123,11 @@ Page({
           }, (err) => {
           })
         }
+        wx.showToast({
+          title: '发布成功！',
+          icon: 'success',
+          duration: 2000
+        })
       }
     })
     

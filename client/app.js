@@ -26,7 +26,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    URL: 'http://localhost:8080',// 根据本地穿透的地址修改
+    URL: 'http://localhost:8080',// 填写服务器端口
   },
   wxRequest(method, url, data, callback, errFun) {
     wx.request({

@@ -44,8 +44,8 @@
   <view class="more iconfont icon-xiangxia ">更多</view>
 </view>
 
-<view class="mt20">
-  <view style="margin:0 15rpx; ">资讯</view>
+<view class="mt20"  >
+  <view style="margin:0 15rpx;">资讯</view>
   <view>
     <import src="/components/list/list.wxml" />
     <template is="list" data="{{list:list}}"></template>

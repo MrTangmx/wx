@@ -16,7 +16,7 @@
     "window": {
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#fff",
-        "navigationBarTitleText": "IT测评",
+        "navigationBarTitleText": "ZEAL",
         "navigationBarTextStyle": "black"
     },
     "style": "v2",
@@ -33,7 +33,7 @@
             },
             {
                 "pagePath": "pages/product/index",
-                "text": "产品库",
+                "text": "产品",
                 "iconPath": "/image/tabBar/_product.png",
                 "selectedIconPath": "/image/tabBar/product.png"
             },

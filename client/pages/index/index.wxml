@@ -1,4 +1,4 @@
-<view style="width:100%;height:120rpx" bindtap="changeState">
+<view style="width:100%;height:120rpx" bindtap="changeState" >
   <view class="nav_top">
     <!-- 搜索 -->
     <view class="seach">
@@ -18,7 +18,7 @@
       </view>
     </view>
     <!-- 导航模块 -->
-    <view class='index_tab'>
+    <view class='index_tab' >
       <scroll-view class="bottom_scroll" scroll-x="true" scroll-left="{{x}}" scroll-with-animation="{{true}}">
         <view class='nav {{item.brand_id == brand_id?"cur":""}}' wx:for="{{nav_list}}" wx:key="{{item.brand_id}}"
           data-id="{{item.brand_id}}" bindtap='switchTap' data-index="{{index}}">
@@ -33,7 +33,7 @@
 <customSwiper wx:if="{{showSwiper}}" imgData="{{swiper_img}}" stitle="{{stitle}}"></customSwiper>
 <!-- 副导航 -->
 <!-- <view wx:if="{{showNavIcon}}" class="navIcon" > -->
-<view wx:if="{{false}}" class="navIcon" >
+<view  class="navIcon" >
   <view class="navIcon_slf">
     <view class="navIcon_item navIcon_elf_base64 navIcon_picture1"></view>
     <text style="font-size:24rpx">查报价</text>
@@ -84,7 +84,8 @@
   </view>
 </view>
 <!-- 热点精选 -->
-<view wx:if="{{showHotExquisite}}" class="hot_exquisite">
+<!-- <view wx:if="{{showHotExquisite}}" class="hot_exquisite"> -->
+<view  class="hot_exquisite">
   <view class="icon_rdjx"></view>
   <view class="icon_content">
     <swiper autoplay='true' vertical='true' circular='true' style="height:36rpx">

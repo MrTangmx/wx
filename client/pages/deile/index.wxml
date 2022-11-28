@@ -20,7 +20,7 @@
   </view>
   <view style="margin: 20px 0;">{{detail.content}}</view>
   <view style="background-color: #F5F5F5;width:100vw;height:20rpx"></view>
-  <view class="reading">
+  <view class="reading" >
     <view style="font-size:24rpx;margin-top:10rpx;color:#999">相关阅读</view>
     <view class="reading_content">
       <import src="/components/list/list.wxml" />
@@ -64,9 +64,9 @@
       </view>
     </view>
     <view class="icon_btns iconfont icon-24gl-bubble2"></view>
-    <view class="icon_btns iconfont icon-dianzan"></view>
+    <!-- <view class="icon_btns iconfont icon-dianzan"></view> -->
     <view class="icon_btns iconfont icon-soucang" bindtap="bindCollect"></view>
-    <view class="icon_btns iconfont icon-fenxiang"></view>
+    <!-- <view class="icon_btns iconfont icon-fenxiang"></view> -->
   </view>
   <view wx:else class="input_box">
     <view class="input">

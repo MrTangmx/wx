@@ -66,6 +66,7 @@ Page({
   },
   // 打开当前页时触发事件
   onLoad: function (options) {
+    console.log(123456);
     this.getAnswers(this.data.page, this.data.size)
   },
   onReachBottom: function () {

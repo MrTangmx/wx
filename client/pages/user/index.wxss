@@ -8,7 +8,10 @@
   justify-content: space-between;
 
 }
-
+.user_list_icon image{
+  width: 100%;
+  height: 100%;
+}
 .user_name {
   flex-grow: 2;
   margin-left: 20rpx;

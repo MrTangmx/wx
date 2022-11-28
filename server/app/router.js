@@ -25,14 +25,14 @@ module.exports = app => {
   router.get('/getAnswersItem', controller.deile.getAnswersItem); //其他评论
   router.get('/login', controller.user.login); // 用户登录
   router.post('/releaseData', controller.product.releaseData);//发布文章
-  router.post('/releaseReply', controller.product.releaseReply);//发布文章
+  router.post('/releaseReply', controller.product.releaseReply);//发布问答
   router.post('/addComments', controller.product.addComments);//添加评论
   router.post('/writeAnswer', controller.product.writeAnswer);//发表相关
   router.post('/writeAnswerPro', controller.product.writeAnswerPro);// 写回答
   router.post('/bindCollect', controller.product.bindCollect);//控制帖子
   router.get('/getCollect', controller.user.getCollect); //获取收藏列表
   router.get('/delCollect', controller.user.delCollect); //删除收藏列表
-  
+
   router.get('/getMsgCode', controller.user.getMsgCode);// 获取验证信息
   router.post('/updatePersonal', controller.user.updatePersonal);// 获取跟新信息
   

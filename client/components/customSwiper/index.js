@@ -61,7 +61,7 @@ Component({
       }
     },
     // 定义跳转的方法（id）
-    skipDetil(e){
+    skipDetil(e) {
       debugger
       console.log(e);
       wx.navigateTo({
@@ -73,7 +73,7 @@ Component({
   lifetimes: {
     ready() {
       this.setData({
-        "swiper_title": this.data.imgData[0].title ? this.data.imgData[0].title : '正在加载中！请稍后......'
+        "swiper_title": this.data.imgData[0] ? this.data.imgData[0].title : '正在加载中！请稍后......'
       })
     }
   },
